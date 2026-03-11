@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+{% block title %}Analytics - Clinic{% endblock %}
+{% block page_title %}Analytics{% endblock %}
+
+{% block content %}
+
+<!-- Stat Cards -->
+<div class="row g-3 mb-4">
+    <div class="col-md-3">
+        <div class="stat-card blue">
+            <div class="stat-label">Doctors</div>
+            <div class="stat-value">{{ total_doctors }}</div>
+            <i class="fas fa-user-md stat-icon"></i>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card green">
+            <div class="stat-label">Patients</div>
+            <div class="stat-value">{{ total_patients }}</div>
+            <i class="fas fa-users stat-icon"></i>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card yellow">
+            <div class="stat-label">Total Appointments</div>
+            <div class="stat-value">{{ total_appointments }}</div>
+            <i class="fas fa-calendar-check stat-icon"></i>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card red">
+            <div class="stat-label">Pending</div>
+            <div class="stat-value">{{ pending_count }}</div>
+            <i class="fas fa-clock stat-icon"></i>
+        </div>
+    </div>
+</div>
+
+<!-- Status Breakdown -->
+<div class="row g-3 mb-4">
+    <div class="col-md-3">
+        <div style="background:#1e293b; border:1px solid rgba(255,255,255,0.07); border-radius:14px; padding:20px; text-align:center;">
+            <div style="font-size:11px; font-weight:700; color:#f59e0b; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">Pending</div>
+            <div style="font-size:32px; font-weight:800; color:white;">{{ pending_count }}</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div style="background:#1e293b; border:1px solid rgba(255,255,255,0.07); border-radius:14px; padding:20px; text-align:center;">
+            <div style="font-size:11px; font-weight:700; color:#10b981; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">Confirmed</div>
+            <div style="font-size:32px; font-weight:800; color:white;">{{ confirmed_count }}</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div style="background:#1e293b; border:1px solid rgba(255,255,255,0.07); border-radius:14px; padding:20px; text-align:center;">
+            <div style="font-size:11px; font-weight:700; color:#6366f1; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">Completed</div>
+            <div style="font-size:32px; font-weight:800; color:white;">{{ completed_count }}</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div style="background:#1e293b; border:1px solid rgba(255,255,255,0.07); border-radius:14px; padding:20px; text-align:center;">
+            <div style="font-size:11px; font-weight:700; color:#ef4444; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">Cancelled</div>
+            <div style="font-size:32px; font-weight:800; color:white;">{{ cancelled_count }}</div>
+        </div>
+    </div>
+</div>
+
+<!-- Charts Row -->
+<div class="row g-3 mb-4">
+    <!-- Pie Chart -->
+    <div class="col-md-5">
+        <div style="background:#1e293b; border:1px solid rgba(255,255,255,0.07); border-radius:16px; padding:24px;">
+            <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#94a3b8; margin-bottom:20px;">Appointment Status</div>
+            <canvas id="statusChart" height="250"></canvas>
+        </div>
+    </div>
+    <!-- Bar Chart -->
+    <div class="col-md-7">
+        <div style="background:#1e293b; border:1px solid rgba(255,255,255,0.07); border-radius:16px; padding:24px;">
+            <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#94a3b8; margin-bottom:20px;">Monthly Appointments</div>
+            <canvas id="monthlyChart" height="250"></canvas>
+        </div>
+    </div>
+</div>
+
+<!-- Top Doctors -->
+<div style="background:#1e293b; border:1px solid rgba(255,255,255,0.07); border-radius:16px; padding:24px;">
+    <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#94a3b8; margin-bottom:20px;">Top Doctors by Appointments</div>
+    {% if top_doctors %}
+    {% for doctor in top_doctors %}
+    <div style="display:flex; align-items:center; justify-content:space-between; padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.05);">
+        <div style="display:flex; align-items:center; gap:12px;">
+            <div style="
+                width:40px; height:40px;
+                background:linear-gradient(135deg,#0ea5e9,#6366f1);
+                border-radius:50%; display:flex; align-items:center;
+                justify-content:center; font-size:14px; color:white; font-weight:700;
+            ">{{ doctor.first_name|first }}{{ doctor.last_name|first }}</div>
+            <div>
+                <div style="font-size:14px; font-weight:600; color:white;">Dr. {{ doctor.first_name }} {{ doctor.last_name }}</div>
+                <div style="font-size:12px; color:#0ea5e9;">{{ doctor.specialization }}</div>
+            </div>
+        </div>
+        <div style="
+            background:rgba(14,165,233,0.12); border:1px solid rgba(14,165,233,0.25);
+            border-radius:20px; padding:4px 14px;
+            font-size:13px; font-weight:700; color:#0ea5e9;
+        ">{{ doctor.apt_count }} appointments</div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div style="text-align:center; color:#64748b; padding:20px;">No data yet</div>
+    {% endif %}
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<script>
+    const statusData = {{ status_data|safe }};
+    const months = {{ months|safe }};
+    const monthCounts = {{ month_counts|safe }};
+
+    // Pie Chart
+    new Chart(document.getElementById('statusChart'), {
+        type: 'doughnut',
+        data: {
+            labels: statusData.labels,
+            datasets: [{
+                data: statusData.data,
+                backgroundColor: statusData.colors,
+                borderWidth: 0,
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: { color: '#94a3b8', padding: 16, font: { size: 12 } }
+                }
+            }
+        }
+    });
+
+    // Bar Chart
+    new Chart(document.getElementById('monthlyChart'), {
+        type: 'bar',
+        data: {
+            labels: months.length > 0 ? months : ['No Data'],
+            datasets: [{
+                label: 'Appointments',
+                data: monthCounts.length > 0 ? monthCounts : [0],
+                backgroundColor: 'rgba(14,165,233,0.6)',
+                borderColor: '#0ea5e9',
+                borderWidth: 1,
+                borderRadius: 6
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                x: {
+                    ticks: { color: '#94a3b8' },
+                    grid: { color: 'rgba(255,255,255,0.05)' }
+                },
+                y: {
+                    ticks: { color: '#94a3b8' },
+                    grid: { color: 'rgba(255,255,255,0.05)' },
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+{% endblock %}

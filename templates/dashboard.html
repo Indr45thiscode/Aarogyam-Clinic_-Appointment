@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard - Clinic{% endblock %}
+{% block page_title %}Welcome, {{ request.user.username|title }} 👋{% endblock %}
+
+{% block content %}
+
+<!-- STAT CARDS -->
+<div class="row g-3 mb-4">
+    <div class="col-md-3">
+        <div class="stat-card blue">
+            <div class="stat-label">Doctors</div>
+            <div class="stat-value">{{ doctors_count }}</div>
+            <i class="fas fa-user-md stat-icon"></i>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card green">
+            <div class="stat-label">Patients</div>
+            <div class="stat-value">{{ patients_count }}</div>
+            <i class="fas fa-users stat-icon"></i>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card yellow">
+            <div class="stat-label">Appointments</div>
+            <div class="stat-value">{{ appointments_count }}</div>
+            <i class="fas fa-calendar-check stat-icon"></i>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card red">
+            <div class="stat-label">Pending</div>
+            <div class="stat-value">{{ pending_count }}</div>
+            <i class="fas fa-clock stat-icon"></i>
+        </div>
+    </div>
+</div>
+
+<!-- QUICK ACTIONS -->
+<div class="section-title">Quick Actions</div>
+<div class="row g-3 mb-4">
+    <div class="col-md-3">
+        <a href="/appointments/add/" class="action-card">
+            <div class="action-icon" style="background: linear-gradient(135deg, #f59e0b, #b45309);">
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="action-label">Book Appointment</div>
+        </a>
+    </div>
+    <div class="col-md-3">
+        <a href="/patients/add/" class="action-card">
+            <div class="action-icon" style="background: linear-gradient(135deg, #10b981, #047857);">
+                <i class="fas fa-user-plus"></i>
+            </div>
+            <div class="action-label">New Patient</div>
+        </a>
+    </div>
+    <div class="col-md-3">
+        <a href="/doctors/add/" class="action-card">
+            <div class="action-icon" style="background: linear-gradient(135deg, #6366f1, #4338ca);">
+                <i class="fas fa-user-md"></i>
+            </div>
+            <div class="action-label">Add Doctor</div>
+        </a>
+    </div>
+    <div class="col-md-3">
+        <a href="/analytics/" class="action-card">
+            <div class="action-icon" style="background: linear-gradient(135deg, #0ea5e9, #0369a1);">
+                <i class="fas fa-chart-bar"></i>
+            </div>
+            <div class="action-label">Analytics</div>
+        </a>
+    </div>
+</div>
+
+<!-- RECENT APPOINTMENTS -->
+<div class="section-title">Recent Appointments</div>
+<div class="dash-card">
+    <table class="table table-dark table-hover mb-0" style="--bs-table-bg: transparent;">
+        <thead>
+            <tr style="border-color: rgba(255,255,255,0.07);">
+                <th style="color: #94a3b8; font-size: 12px; font-weight: 600;">PATIENT</th>
+                <th style="color: #94a3b8; font-size: 12px; font-weight: 600;">DOCTOR</th>
+                <th style="color: #94a3b8; font-size: 12px; font-weight: 600;">DATE</th>
+                <th style="color: #94a3b8; font-size: 12px; font-weight: 600;">STATUS</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for apt in recent_appointments %}
+            <tr style="border-color: rgba(255,255,255,0.05);">
+                <td>{{ apt.patient }}</td>
+                <td>{{ apt.doctor }}</td>
+                <td>{{ apt.appointment_date|date:"d M Y" }}</td>
+                <td>
+                    {% if apt.status == 'confirmed' %}
+                        <span class="badge" style="background: rgba(16,185,129,0.2); color: #10b981;">Confirmed</span>
+                    {% elif apt.status == 'pending' %}
+                        <span class="badge" style="background: rgba(245,158,11,0.2); color: #f59e0b;">Pending</span>
+                    {% elif apt.status == 'completed' %}
+                        <span class="badge" style="background: rgba(99,102,241,0.2); color: #6366f1;">Completed</span>
+                    {% else %}
+                        <span class="badge" style="background: rgba(239,68,68,0.2); color: #ef4444;">Cancelled</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4" class="text-center" style="color: #94a3b8; padding: 30px;">
+                    <i class="fas fa-calendar-times mb-2" style="font-size: 24px;"></i>
+                    <br>No appointments yet
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

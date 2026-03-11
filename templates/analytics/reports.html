@@ -1,0 +1,237 @@
+{% extends 'base.html' %}
+{% block title %}Reports - Clinic{% endblock %}
+{% block page_title %}Reports{% endblock %}
+
+{% block content %}
+
+<!-- Print Button -->
+<div style="display: flex; justify-content: flex-end; margin-bottom: 24px; gap: 12px;">
+    <button onclick="window.print()" style="
+        background: linear-gradient(135deg, #0ea5e9, #6366f1);
+        color: white; padding: 10px 20px; border-radius: 10px;
+        border: none; font-size: 14px; font-weight: 600;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        cursor: pointer; display: flex; align-items: center; gap: 8px;
+    "><i class="fas fa-print"></i> Print / Save PDF</button>
+</div>
+
+<!-- Print Area -->
+<div id="printArea">
+
+    <!-- Header -->
+    <div style="
+        background: #1e293b; border: 1px solid rgba(255,255,255,0.07);
+        border-radius: 16px; padding: 28px; margin-bottom: 24px;
+        display: flex; align-items: center; justify-content: space-between;
+    ">
+        <div style="display: flex; align-items: center; gap: 16px;">
+            <div style="
+                width: 52px; height: 52px;
+                background: linear-gradient(135deg, #0ea5e9, #6366f1);
+                border-radius: 14px; display: flex; align-items: center;
+                justify-content: center; font-size: 22px; color: white;
+            "><i class="fas fa-heartbeat"></i></div>
+            <div>
+                <div style="font-size: 20px; font-weight: 800; color: white;">Clinic Management System</div>
+                <div style="font-size: 13px; color: #94a3b8;">Complete Report</div>
+            </div>
+        </div>
+        <div style="text-align: right; font-size: 13px; color: #94a3b8;">
+            <div>Generated on</div>
+            <div style="color: white; font-weight: 600;">{% now "d M Y, H:i" %}</div>
+        </div>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="row g-3 mb-4">
+        <div class="col-md-3">
+            <div style="background: linear-gradient(135deg, #0ea5e9, #0369a1); border-radius: 14px; padding: 20px; position: relative; overflow: hidden;">
+                <div style="font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; opacity: 0.85; margin-bottom: 8px;">Doctors</div>
+                <div style="font-size: 36px; font-weight: 800;">{{ total_doctors }}</div>
+                <i class="fas fa-user-md" style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); font-size: 44px; opacity: 0.2;"></i>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div style="background: linear-gradient(135deg, #10b981, #047857); border-radius: 14px; padding: 20px; position: relative; overflow: hidden;">
+                <div style="font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; opacity: 0.85; margin-bottom: 8px;">Patients</div>
+                <div style="font-size: 36px; font-weight: 800;">{{ total_patients }}</div>
+                <i class="fas fa-users" style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); font-size: 44px; opacity: 0.2;"></i>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div style="background: linear-gradient(135deg, #f59e0b, #b45309); border-radius: 14px; padding: 20px; position: relative; overflow: hidden;">
+                <div style="font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; opacity: 0.85; margin-bottom: 8px;">Appointments</div>
+                <div style="font-size: 36px; font-weight: 800;">{{ total_appointments }}</div>
+                <i class="fas fa-calendar-check" style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); font-size: 44px; opacity: 0.2;"></i>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div style="background: linear-gradient(135deg, #ef4444, #b91c1c); border-radius: 14px; padding: 20px; position: relative; overflow: hidden;">
+                <div style="font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; opacity: 0.85; margin-bottom: 8px;">Pending</div>
+                <div style="font-size: 36px; font-weight: 800;">{{ pending_count }}</div>
+                <i class="fas fa-clock" style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); font-size: 44px; opacity: 0.2;"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Status Breakdown -->
+    <div style="background: #1e293b; border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; padding: 24px; margin-bottom: 24px;">
+        <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 16px;">Appointment Status Breakdown</div>
+        <div class="row g-3">
+            <div class="col-md-3">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="width: 12px; height: 12px; border-radius: 50%; background: #f59e0b;"></div>
+                    <span style="color: #94a3b8; font-size: 14px;">Pending</span>
+                    <span style="color: white; font-weight: 700; margin-left: auto;">{{ pending_count }}</span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="width: 12px; height: 12px; border-radius: 50%; background: #10b981;"></div>
+                    <span style="color: #94a3b8; font-size: 14px;">Confirmed</span>
+                    <span style="color: white; font-weight: 700; margin-left: auto;">{{ confirmed_count }}</span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="width: 12px; height: 12px; border-radius: 50%; background: #6366f1;"></div>
+                    <span style="color: #94a3b8; font-size: 14px;">Completed</span>
+                    <span style="color: white; font-weight: 700; margin-left: auto;">{{ completed_count }}</span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="width: 12px; height: 12px; border-radius: 50%; background: #ef4444;"></div>
+                    <span style="color: #94a3b8; font-size: 14px;">Cancelled</span>
+                    <span style="color: white; font-weight: 700; margin-left: auto;">{{ cancelled_count }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Doctors Table -->
+    <div style="background: #1e293b; border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; padding: 24px; margin-bottom: 24px;">
+        <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 16px;">
+            <i class="fas fa-user-md me-2" style="color: #0ea5e9;"></i>Doctors List
+        </div>
+        <table class="table table-dark mb-0" style="--bs-table-bg: transparent;">
+            <thead>
+                <tr style="border-color: rgba(255,255,255,0.07);">
+                    <th style="color: #64748b; font-size: 12px; font-weight: 600;">#</th>
+                    <th style="color: #64748b; font-size: 12px; font-weight: 600;">NAME</th>
+                    <th style="color: #64748b; font-size: 12px; font-weight: 600;">SPECIALIZATION</th>
+                    <th style="color: #64748b; font-size: 12px; font-weight: 600;">PHONE</th>
+                    <th style="color: #64748b; font-size: 12px; font-weight: 600;">EMAIL</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for doctor in doctors %}
+                <tr style="border-color: rgba(255,255,255,0.05);">
+                    <td style="color: #64748b;">{{ forloop.counter }}</td>
+                    <td style="color: white; font-weight: 600;">Dr. {{ doctor.first_name }} {{ doctor.last_name }}</td>
+                    <td style="color: #0ea5e9;">{{ doctor.specialization }}</td>
+                    <td style="color: #94a3b8;">{{ doctor.phone }}</td>
+                    <td style="color: #94a3b8;">{{ doctor.email }}</td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="5" style="text-align: center; color: #64748b;">No doctors found</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Patients Table -->
+    <div style="background: #1e293b; border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; padding: 24px; margin-bottom: 24px;">
+        <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 16px;">
+            <i class="fas fa-users me-2" style="color: #10b981;"></i>Patients List
+        </div>
+        <table class="table table-dark mb-0" style="--bs-table-bg: transparent;">
+            <thead>
+                <tr style="border-color: rgba(255,255,255,0.07);">
+                    <th style="color: #64748b; font-size: 12px; font-weight: 600;">#</th>
+                    <th style="color: #64748b; font-size: 12px; font-weight: 600;">NAME</th>
+                    <th style="color: #64748b; font-size: 12px; font-weight: 600;">AGE</th>
+                    <th style="color: #64748b; font-size: 12px; font-weight: 600;">GENDER</th>
+                    <th style="color: #64748b; font-size: 12px; font-weight: 600;">PHONE</th>
+                    <th style="color: #64748b; font-size: 12px; font-weight: 600;">EMAIL</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for patient in patients %}
+                <tr style="border-color: rgba(255,255,255,0.05);">
+                    <td style="color: #64748b;">{{ forloop.counter }}</td>
+                    <td style="color: white; font-weight: 600;">{{ patient.first_name }} {{ patient.last_name }}</td>
+                    <td style="color: #94a3b8;">{{ patient.age }}</td>
+                    <td style="color: #94a3b8;">{{ patient.get_gender_display }}</td>
+                    <td style="color: #94a3b8;">{{ patient.phone }}</td>
+                    <td style="color: #94a3b8;">{{ patient.email }}</td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="6" style="text-align: center; color: #64748b;">No patients found</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Appointments Table -->
+    <div style="background: #1e293b; border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; padding: 24px;">
+        <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 16px;">
+            <i class="fas fa-calendar-check me-2" style="color: #f59e0b;"></i>Appointments List
+        </div>
+        <table class="table table-dark mb-0" style="--bs-table-bg: transparent;">
+            <thead>
+                <tr style="border-color: rgba(255,255,255,0.07);">
+                    <th style="color: #64748b; font-size: 12px; font-weight: 600;">#</th>
+                    <th style="color: #64748b; font-size: 12px; font-weight: 600;">PATIENT</th>
+                    <th style="color: #64748b; font-size: 12px; font-weight: 600;">DOCTOR</th>
+                    <th style="color: #64748b; font-size: 12px; font-weight: 600;">DATE & TIME</th>
+                    <th style="color: #64748b; font-size: 12px; font-weight: 600;">STATUS</th>
+                    <th style="color: #64748b; font-size: 12px; font-weight: 600;">NOTES</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for apt in appointments %}
+                <tr style="border-color: rgba(255,255,255,0.05);">
+                    <td style="color: #64748b;">{{ forloop.counter }}</td>
+                    <td style="color: white; font-weight: 600;">{{ apt.patient }}</td>
+                    <td style="color: #94a3b8;">{{ apt.doctor }}</td>
+                    <td style="color: #94a3b8; font-size: 13px;">{{ apt.appointment_date|date:"d M Y" }} — {{ apt.time_slot }}</td>                    <td>
+                        {% if apt.status == 'confirmed' %}
+                            <span style="background: rgba(16,185,129,0.2); color: #10b981; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 600;">Confirmed</span>
+                        {% elif apt.status == 'pending' %}
+                            <span style="background: rgba(245,158,11,0.2); color: #f59e0b; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 600;">Pending</span>
+                        {% elif apt.status == 'completed' %}
+                            <span style="background: rgba(99,102,241,0.2); color: #6366f1; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 600;">Completed</span>
+                        {% else %}
+                            <span style="background: rgba(239,68,68,0.2); color: #ef4444; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 600;">Cancelled</span>
+                        {% endif %}
+                    </td>
+                    <td style="color: #64748b; font-size: 13px;">{{ apt.notes|default:"-" }}</td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="6" style="text-align: center; color: #64748b;">No appointments found</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<style>
+@media print {
+    .sidebar, .topbar-right, button { display: none !important; }
+    .main-content { margin-left: 0 !important; }
+    body { background: white !important; color: black !important; }
+    .stat-card, #printArea > div {
+        border: 1px solid #ddd !important;
+        background: white !important;
+        color: black !important;
+    }
+    table { color: black !important; }
+    td, th { color: #333 !important; border-color: #ddd !important; }
+}
+</style>
+{% endblock %}

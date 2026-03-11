@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; font-size: 13px; color: #1a1a1a; background: #fff; padding: 30px 40px; }
+
+  /* Header */
+  .clinic-header { text-align: center; padding-bottom: 14px; margin-bottom: 20px; border-bottom: 3px double #0d4f3c; }
+  .clinic-name { font-size: 28px; font-weight: bold; color: #0d4f3c; letter-spacing: 1px; }
+  .clinic-sub { font-size: 12px; color: #666; margin-top: 4px; }
+  .doctor-badge { display: inline-block; margin-top: 8px; background: #0d4f3c; color: white; padding: 4px 20px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+
+  /* Patient Info Row */
+  .patient-row { display: flex; gap: 0; border: 1.5px solid #0d4f3c; border-radius: 8px; overflow: hidden; margin-bottom: 20px; }
+  .patient-cell { flex: 1; padding: 10px 14px; background: #f0fff8; border-right: 1px solid #a7f3d0; }
+  .patient-cell:last-child { border-right: none; }
+  .p-label { font-size: 9px; color: #666; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 3px; }
+  .p-value { font-size: 14px; font-weight: bold; color: #0d4f3c; }
+
+  /* Section */
+  .section-title { font-size: 11px; font-weight: bold; color: #0d4f3c; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; margin-top: 18px; padding: 4px 10px; background: #e6fff5; border-left: 4px solid #0d4f3c; border-radius: 0 4px 4px 0; }
+  .section-box { background: #f8fffe; border: 1px solid #d1fae5; padding: 12px 16px; border-radius: 6px; font-size: 13px; color: #333; line-height: 1.7; }
+
+  /* Medicine Table */
+  table { width: 100%; border-collapse: collapse; border-radius: 8px; overflow: hidden; }
+  thead tr { background: #0d4f3c; }
+  thead th { padding: 10px 12px; color: white; font-size: 11px; text-align: left; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+  tbody tr:nth-child(even) { background: #f0fff8; }
+  tbody tr:nth-child(odd) { background: #ffffff; }
+  tbody td { padding: 10px 12px; border-bottom: 1px solid #d1fae5; font-size: 13px; }
+  .med-num { color: #999; font-size: 12px; width: 30px; }
+  .med-name { font-weight: bold; color: #0d4f3c; }
+  .med-dosage { color: #0369a1; font-weight: 600; }
+  .med-duration { color: #b45309; font-weight: 600; }
+  .med-instr { color: #555; font-size: 12px; }
+
+  /* Next Visit */
+  .next-visit { margin-top: 16px; background: #d1fae5; border: 1.5px solid #10b981; padding: 10px 18px; border-radius: 8px; font-size: 13px; display: flex; align-items: center; gap: 10px; }
+  .next-visit strong { color: #0d4f3c; }
+
+  /* Footer */
+  .footer { margin-top: 36px; display: flex; justify-content: space-between; align-items: flex-end; padding-top: 14px; border-top: 1.5px solid #a7f3d0; }
+  .generated { font-size: 10px; color: #aaa; }
+  .signature { text-align: right; }
+  .sig-line { border-top: 2px solid #0d4f3c; width: 200px; margin-bottom: 6px; margin-left: auto; }
+  .sig-name { font-size: 15px; font-weight: bold; color: #0d4f3c; }
+  .sig-spec { font-size: 11px; color: #555; margin-top: 2px; }
+
+  /* Print Button */
+  .print-btn { text-align: center; margin-top: 28px; }
+  .print-btn button { padding: 11px 36px; background: #0d4f3c; color: white; border: none; border-radius: 8px; font-size: 14px; cursor: pointer; font-weight: 600; }
+
+  @media print {
+    .print-btn { display: none; }
+    body { padding: 10px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Clinic Header -->
+<div class="clinic-header">
+  <div class="clinic-name">Aarogyam Multi-Speciality Clinic</div>
+  <div class="clinic-sub">Virar West, Maharashtra - 401303 &nbsp;|&nbsp; Your Wellness Is Our Responsibility</div>
+  <div><span class="doctor-badge">Dr. {{ appointment.doctor.first_name }} {{ appointment.doctor.last_name }} &nbsp;|&nbsp; {{ appointment.doctor.specialization }}</span></div>
+</div>
+
+<!-- Patient Info — single row -->
+<div class="patient-row">
+  <div class="patient-cell">
+    <div class="p-label">Patient Name</div>
+    <div class="p-value">{{ appointment.patient.first_name }} {{ appointment.patient.last_name }}</div>
+  </div>
+  <div class="patient-cell">
+    <div class="p-label">Phone</div>
+    <div class="p-value">{{ appointment.patient.phone }}</div>
+  </div>
+  <div class="patient-cell">
+    <div class="p-label">Age</div>
+    <div class="p-value">{{ appointment.patient.age|default:"—" }} yrs</div>
+  </div>
+  <div class="patient-cell">
+    <div class="p-label">Date</div>
+    <div class="p-value">{{ appointment.appointment_date }}</div>
+  </div>
+  <div class="patient-cell">
+    <div class="p-label">Appt #</div>
+    <div class="p-value">#{{ appointment.id }}</div>
+  </div>
+</div>
+
+{% if prescription %}
+
+  <!-- Diagnosis -->
+  {% if prescription.diagnosis %}
+  <div class="section-title">🔍 Diagnosis</div>
+  <div class="section-box">{{ prescription.diagnosis }}</div>
+  {% endif %}
+
+  <!-- Medicines -->
+  {% if medicines %}
+  <div class="section-title">💊 Medicines Prescribed</div>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Medicine Name</th>
+        <th>Dosage</th>
+        <th>Duration</th>
+        <th>Instructions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for med in medicines %}
+      <tr>
+        <td class="med-num">{{ forloop.counter }}</td>
+        <td class="med-name">{{ med.name }}</td>
+        <td class="med-dosage">{{ med.dosage|default:"—" }}</td>
+        <td class="med-duration">{{ med.duration|default:"—" }}</td>
+        <td class="med-instr">{{ med.instructions|default:"—" }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <div class="section-title">💊 Medicines Prescribed</div>
+  <div class="section-box" style="color:#999; font-style:italic;">No medicines prescribed.</div>
+  {% endif %}
+
+  <!-- Doctor Notes -->
+  {% if prescription.doctor_notes %}
+  <div class="section-title">📋 Doctor Notes</div>
+  <div class="section-box">{{ prescription.doctor_notes }}</div>
+  {% endif %}
+
+  <!-- Next Visit -->
+  {% if prescription.next_visit_date %}
+  <div class="next-visit">
+    📅 <strong>Next Visit:</strong> {{ prescription.next_visit_date }}
+  </div>
+  {% endif %}
+
+{% else %}
+  <div class="section-box" style="margin-top:20px; color:#999;">No prescription found.</div>
+{% endif %}
+
+<!-- Footer -->
+<div class="footer">
+  <div class="generated">Generated: {{ prescription.created_at|date:"d M Y, H:i" }}</div>
+  <div class="signature">
+    <div class="sig-line"></div>
+    <div class="sig-name">Dr. {{ appointment.doctor.first_name }} {{ appointment.doctor.last_name }}</div>
+    <div class="sig-spec">{{ appointment.doctor.specialization }}</div>
+    <div class="sig-spec">Aarogyam Multi-Speciality Clinic</div>
+  </div>
+</div>
+
+{% if not pdf_mode %}
+<div class="print-btn">
+  <button onclick="window.print()">🖨️ Print / Save as PDF</button>
+</div>
+{% endif %}
+
+</body>
+</html>

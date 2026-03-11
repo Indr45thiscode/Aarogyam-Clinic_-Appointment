@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block title %}Edit Doctor - Clinic{% endblock %}
+{% block page_title %}Edit Doctor{% endblock %}
+
+{% block content %}
+
+<a href="/doctors/" style="
+    display: inline-flex; align-items: center; gap: 8px;
+    color: #94a3b8; font-size: 14px; text-decoration: none; margin-bottom: 24px;
+">
+    <i class="fas fa-arrow-left"></i> Back to Doctors
+</a>
+
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div style="background: #1e293b; border: 1px solid rgba(255,255,255,0.07); border-radius: 20px; padding: 36px;">
+
+            <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 30px;">
+                <div style="
+                    width: 48px; height: 48px;
+                    background: linear-gradient(135deg, #6366f1, #4338ca);
+                    border-radius: 14px; display: flex; align-items: center;
+                    justify-content: center; font-size: 20px; color: white;
+                "><i class="fas fa-user-edit"></i></div>
+                <div>
+                    <div style="font-size: 18px; font-weight: 700; color: white;">Edit Doctor</div>
+                    <div style="font-size: 13px; color: #94a3b8;">Dr. {{ doctor.first_name }} {{ doctor.last_name }}</div>
+                </div>
+            </div>
+
+            <form method="post">
+                {% csrf_token %}
+
+                <div class="row g-3 mb-3">
+                    <div class="col-md-6">
+                        <label style="display: block; font-size: 12px; font-weight: 600; color: #94a3b8; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">First Name *</label>
+                        <input type="text" name="first_name" required value="{{ doctor.first_name }}"
+                            style="width: 100%; background: #0f172a; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; color: white; padding: 12px 14px; font-size: 14px; font-family: 'Plus Jakarta Sans', sans-serif; outline: none;"
+                            onfocus="this.style.borderColor='#0ea5e9'" onblur="this.style.borderColor='rgba(255,255,255,0.08)'">
+                    </div>
+                    <div class="col-md-6">
+                        <label style="display: block; font-size: 12px; font-weight: 600; color: #94a3b8; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Last Name *</label>
+                        <input type="text" name="last_name" required value="{{ doctor.last_name }}"
+                            style="width: 100%; background: #0f172a; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; color: white; padding: 12px 14px; font-size: 14px; font-family: 'Plus Jakarta Sans', sans-serif; outline: none;"
+                            onfocus="this.style.borderColor='#0ea5e9'" onblur="this.style.borderColor='rgba(255,255,255,0.08)'">
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label style="display: block; font-size: 12px; font-weight: 600; color: #94a3b8; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Specialization *</label>
+                    <select name="specialization" required style="width: 100%; background: #0f172a; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; color: white; padding: 12px 14px; font-size: 14px; font-family: 'Plus Jakarta Sans', sans-serif; outline: none; cursor: pointer;"
+                        onfocus="this.style.borderColor='#0ea5e9'" onblur="this.style.borderColor='rgba(255,255,255,0.08)'">
+                        <option value="General Physician" style="background:#1e293b" {% if doctor.specialization == 'General Physician' %}selected{% endif %}>General Physician</option>
+                        <option value="Cardiologist" style="background:#1e293b" {% if doctor.specialization == 'Cardiologist' %}selected{% endif %}>Cardiologist</option>
+                        <option value="Dermatologist" style="background:#1e293b" {% if doctor.specialization == 'Dermatologist' %}selected{% endif %}>Dermatologist</option>
+                        <option value="Neurologist" style="background:#1e293b" {% if doctor.specialization == 'Neurologist' %}selected{% endif %}>Neurologist</option>
+                        <option value="Orthopedic" style="background:#1e293b" {% if doctor.specialization == 'Orthopedic' %}selected{% endif %}>Orthopedic</option>
+                        <option value="Pediatrician" style="background:#1e293b" {% if doctor.specialization == 'Pediatrician' %}selected{% endif %}>Pediatrician</option>
+                        <option value="Psychiatrist" style="background:#1e293b" {% if doctor.specialization == 'Psychiatrist' %}selected{% endif %}>Psychiatrist</option>
+                        <option value="Gynecologist" style="background:#1e293b" {% if doctor.specialization == 'Gynecologist' %}selected{% endif %}>Gynecologist</option>
+                        <option value="ENT Specialist" style="background:#1e293b" {% if doctor.specialization == 'ENT Specialist' %}selected{% endif %}>ENT Specialist</option>
+                        <option value="Ophthalmologist" style="background:#1e293b" {% if doctor.specialization == 'Ophthalmologist' %}selected{% endif %}>Ophthalmologist</option>
+                        <option value="Other" style="background:#1e293b" {% if doctor.specialization == 'Other' %}selected{% endif %}>Other</option>
+                    </select>
+                </div>
+
+                <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                        <label style="display: block; font-size: 12px; font-weight: 600; color: #94a3b8; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Phone *</label>
+                        <input type="tel" name="phone" required value="{{ doctor.phone }}"
+                            style="width: 100%; background: #0f172a; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; color: white; padding: 12px 14px; font-size: 14px; font-family: 'Plus Jakarta Sans', sans-serif; outline: none;"
+                            onfocus="this.style.borderColor='#0ea5e9'" onblur="this.style.borderColor='rgba(255,255,255,0.08)'">
+                    </div>
+                    <div class="col-md-6">
+                        <label style="display: block; font-size: 12px; font-weight: 600; color: #94a3b8; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">Email *</label>
+                        <input type="email" name="email" required value="{{ doctor.email }}"
+                            style="width: 100%; background: #0f172a; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; color: white; padding: 12px 14px; font-size: 14px; font-family: 'Plus Jakarta Sans', sans-serif; outline: none;"
+                            onfocus="this.style.borderColor='#0ea5e9'" onblur="this.style.borderColor='rgba(255,255,255,0.08)'">
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 12px;">
+                    <button type="submit" style="
+                        flex: 1; padding: 13px;
+                        background: linear-gradient(135deg, #6366f1, #4338ca);
+                        border: none; border-radius: 10px; color: white;
+                        font-size: 15px; font-weight: 700;
+                        font-family: 'Plus Jakarta Sans', sans-serif; cursor: pointer;
+                    "><i class="fas fa-save me-2"></i>Save Changes</button>
+                    <a href="/doctors/" style="
+                        padding: 13px 20px;
+                        background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+                        border-radius: 10px; color: #94a3b8; font-size: 14px; font-weight: 600;
+                        text-decoration: none; text-align: center;
+                    ">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

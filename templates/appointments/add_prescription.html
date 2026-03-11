@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% block page_title %}Add Prescription{% endblock %}
+{% block content %}
+<div style="max-width:800px; margin:0 auto;">
+
+    <!-- Header -->
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:24px;">
+        <div>
+            <div style="font-size:22px; font-weight:800; color:white; margin-bottom:4px;">
+                <i class="fas fa-file-medical" style="color:var(--primary);"></i> Add Prescription
+            </div>
+            <div style="font-size:13px; color:#64748b;">
+                {{ appointment.patient }} &nbsp;·&nbsp; Dr. {{ appointment.doctor }} &nbsp;·&nbsp; {{ appointment.appointment_date }}
+            </div>
+        </div>
+        <a href="{% url 'appointment_list' %}" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:white; padding:8px 16px; border-radius:8px; text-decoration:none; font-size:13px;">
+            <i class="fas fa-arrow-left me-1"></i> Back
+        </a>
+    </div>
+
+    <form method="post" id="prescriptionForm">
+        {% csrf_token %}
+
+        <!-- Doctor Notes -->
+        <div style="background:#1e293b; border:1px solid rgba(255,255,255,0.07); border-radius:16px; padding:24px; margin-bottom:20px;">
+            <div style="font-size:14px; font-weight:700; color:white; margin-bottom:16px;">
+                <i class="fas fa-notes-medical" style="color:var(--primary);"></i> Doctor Notes
+            </div>
+            <textarea name="doctor_notes" rows="4" style="width:100%; background:rgba(15,23,42,0.9); border:1.5px solid rgba(255,255,255,0.08); border-radius:10px; color:white; padding:12px 14px; font-size:14px; font-family:'Outfit',sans-serif; outline:none; resize:vertical; transition:all 0.2s;" placeholder="Write diagnosis, observations, or any notes..." onfocus="this.style.borderColor='#0ea5e9'" onblur="this.style.borderColor='rgba(255,255,255,0.08)'">{% if prescription %}{{ prescription.doctor_notes }}{% endif %}</textarea>
+        </div>
+
+        <!-- Medicines -->
+        <div style="background:#1e293b; border:1px solid rgba(255,255,255,0.07); border-radius:16px; padding:24px; margin-bottom:20px;">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;">
+                <div style="font-size:14px; font-weight:700; color:white;">
+                    <i class="fas fa-pills" style="color:var(--success);"></i> Medicines
+                </div>
+                <button type="button" onclick="addMedicine()" style="background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); color:#10b981; padding:7px 14px; border-radius:8px; font-size:12px; font-weight:600; cursor:pointer; font-family:'Outfit',sans-serif;">
+                    <i class="fas fa-plus me-1"></i> Add Medicine
+                </button>
+            </div>
+
+            <!-- Headers -->
+            <div style="display:grid; grid-template-columns:2fr 1fr 1fr 2fr 40px; gap:8px; margin-bottom:8px; padding:0 4px;">
+                <div style="font-size:10px; font-weight:700; color:#475569; text-transform:uppercase; letter-spacing:0.5px;">Medicine Name</div>
+                <div style="font-size:10px; font-weight:700; color:#475569; text-transform:uppercase; letter-spacing:0.5px;">Dosage</div>
+                <div style="font-size:10px; font-weight:700; color:#475569; text-transform:uppercase; letter-spacing:0.5px;">Duration</div>
+                <div style="font-size:10px; font-weight:700; color:#475569; text-transform:uppercase; letter-spacing:0.5px;">Instructions</div>
+                <div></div>
+            </div>
+
+            <div id="medicineList">
+                {% if medicines %}
+                    {% for med in medicines %}
+                    <div class="medicine-row" style="display:grid; grid-template-columns:2fr 1fr 1fr 2fr 40px; gap:8px; margin-bottom:8px;">
+                        <input type="text" name="medicine_name[]" value="{{ med.name }}" placeholder="e.g. Paracetamol" class="med-input">
+                        <input type="text" name="medicine_dosage[]" value="{{ med.dosage }}" placeholder="e.g. 500mg" class="med-input">
+                        <input type="text" name="medicine_duration[]" value="{{ med.duration }}" placeholder="e.g. 5 days" class="med-input">
+                        <input type="text" name="medicine_instructions[]" value="{{ med.instructions }}" placeholder="e.g. After meals" class="med-input">
+                        <button type="button" onclick="removeMedicine(this)" style="background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.2); color:#ef4444; border-radius:8px; cursor:pointer; font-size:14px; width:36px; height:36px;">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="medicine-row" style="display:grid; grid-template-columns:2fr 1fr 1fr 2fr 40px; gap:8px; margin-bottom:8px;">
+                        <input type="text" name="medicine_name[]" placeholder="e.g. Paracetamol" class="med-input">
+                        <input type="text" name="medicine_dosage[]" placeholder="e.g. 500mg" class="med-input">
+                        <input type="text" name="medicine_duration[]" placeholder="e.g. 5 days" class="med-input">
+                        <input type="text" name="medicine_instructions[]" placeholder="e.g. After meals" class="med-input">
+                        <button type="button" onclick="removeMedicine(this)" style="background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.2); color:#ef4444; border-radius:8px; cursor:pointer; font-size:14px; width:36px; height:36px;">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Next Visit Date -->
+        <div style="background:#1e293b; border:1px solid rgba(255,255,255,0.07); border-radius:16px; padding:24px; margin-bottom:24px;">
+            <div style="font-size:14px; font-weight:700; color:white; margin-bottom:16px;">
+                <i class="fas fa-calendar-alt" style="color:var(--warning);"></i> Next Visit Date
+            </div>
+            <input type="date" name="next_visit_date"
+                value="{% if prescription and prescription.next_visit_date %}{{ prescription.next_visit_date|date:'Y-m-d' }}{% endif %}"
+                style="background:rgba(15,23,42,0.9); border:1.5px solid rgba(255,255,255,0.08); border-radius:10px; color:white; padding:11px 14px; font-size:14px; font-family:'Outfit',sans-serif; outline:none; transition:all 0.2s; color-scheme:dark;"
+                onfocus="this.style.borderColor='#0ea5e9'"
+                onblur="this.style.borderColor='rgba(255,255,255,0.08)'">
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" style="width:100%; padding:14px; background:linear-gradient(135deg,var(--primary),var(--secondary)); border:none; border-radius:10px; color:white; font-size:14px; font-weight:700; font-family:'Outfit',sans-serif; cursor:pointer; box-shadow:0 8px 20px rgba(14,165,233,0.25);">
+            <i class="fas fa-save me-2"></i> Save Prescription & Complete Appointment
+        </button>
+
+    </form>
+</div>
+
+<style>
+.med-input {
+    width:100%; background:rgba(15,23,42,0.9);
+    border:1.5px solid rgba(255,255,255,0.08);
+    border-radius:8px; color:white;
+    padding:8px 12px; font-size:13px;
+    font-family:'Outfit',sans-serif;
+    outline:none; transition:border-color 0.2s;
+    height:36px;
+}
+.med-input:focus { border-color:#0ea5e9; }
+.med-input::placeholder { color:#334155; }
+</style>
+
+<script>
+function addMedicine() {
+    const list = document.getElementById('medicineList');
+    const row = document.createElement('div');
+    row.className = 'medicine-row';
+    row.style.cssText = 'display:grid; grid-template-columns:2fr 1fr 1fr 2fr 40px; gap:8px; margin-bottom:8px;';
+    row.innerHTML = `
+        <input type="text" name="medicine_name[]" placeholder="e.g. Paracetamol" class="med-input">
+        <input type="text" name="medicine_dosage[]" placeholder="e.g. 500mg" class="med-input">
+        <input type="text" name="medicine_duration[]" placeholder="e.g. 5 days" class="med-input">
+        <input type="text" name="medicine_instructions[]" placeholder="e.g. After meals" class="med-input">
+        <button type="button" onclick="removeMedicine(this)" style="background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.2); color:#ef4444; border-radius:8px; cursor:pointer; font-size:14px; width:36px; height:36px;">
+            <i class="fas fa-times"></i>
+        </button>
+    `;
+    list.appendChild(row);
+}
+
+function removeMedicine(btn) {
+    const rows = document.querySelectorAll('.medicine-row');
+    if (rows.length > 1) {
+        btn.closest('.medicine-row').remove();
+    }
+}
+</script>
+{% endblock %}

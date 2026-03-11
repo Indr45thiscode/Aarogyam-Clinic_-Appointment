@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}Delete Appointment - Clinic{% endblock %}
+{% block page_title %}Delete Appointment{% endblock %}
+
+{% block content %}
+
+<a href="/appointments/" style="
+    display: inline-flex; align-items: center; gap: 8px;
+    color: #94a3b8; font-size: 14px; text-decoration: none; margin-bottom: 24px;
+">
+    <i class="fas fa-arrow-left"></i> Back to Appointments
+</a>
+
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <div style="
+            background: #1e293b; border: 1px solid rgba(239,68,68,0.25);
+            border-radius: 20px; padding: 40px; text-align: center;
+        ">
+            <div style="
+                width: 72px; height: 72px;
+                background: rgba(239,68,68,0.12); border-radius: 50%;
+                display: flex; align-items: center; justify-content: center;
+                margin: 0 auto 20px; font-size: 28px; color: #ef4444;
+            "><i class="fas fa-trash-alt"></i></div>
+
+            <div style="font-size: 20px; font-weight: 700; color: white; margin-bottom: 10px;">Delete Appointment?</div>
+            <div style="font-size: 14px; color: #94a3b8; margin-bottom: 8px;">
+                <strong style="color: #ef4444;">{{ appointment.patient }}</strong> ani
+                <strong style="color: #ef4444;">{{ appointment.doctor }}</strong> chi appointment delete hoil.
+            </div>
+            <div style="font-size: 13px; color: #64748b; margin-bottom: 32px;">
+                📅 {{ appointment.appointment_date|date:"d M Y, H:i" }}<br>
+                ⚠️ Ha action undo nahi hota.
+            </div>
+
+            <form method="post" style="display: flex; gap: 12px;">
+                {% csrf_token %}
+                <button type="submit" style="
+                    flex: 1; padding: 13px;
+                    background: linear-gradient(135deg, #ef4444, #b91c1c);
+                    border: none; border-radius: 10px; color: white;
+                    font-size: 15px; font-weight: 700;
+                    font-family: 'Plus Jakarta Sans', sans-serif; cursor: pointer;
+                "><i class="fas fa-trash me-2"></i>Yes, Delete</button>
+                <a href="/appointments/" style="
+                    flex: 1; padding: 13px;
+                    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+                    border-radius: 10px; color: #94a3b8; font-size: 15px; font-weight: 600;
+                    text-decoration: none; text-align: center;
+                ">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

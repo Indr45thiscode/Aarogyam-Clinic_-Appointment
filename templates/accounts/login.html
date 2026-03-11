@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Clinic Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #0f172a;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+            animation: float 8s ease-in-out infinite;
+        }
+        .blob-1 { width: 500px; height: 500px; background: #0ea5e9; top: -150px; left: -150px; }
+        .blob-2 { width: 400px; height: 400px; background: #6366f1; bottom: -100px; right: -100px; animation-delay: 3s; }
+        .blob-3 { width: 300px; height: 300px; background: #10b981; top: 50%; left: 50%; transform: translate(-50%, -50%); animation-delay: 5s; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .login-wrapper { position: relative; z-index: 10; width: 100%; max-width: 460px; padding: 20px; }
+        .login-card {
+            background: rgba(30,41,59,0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 28px;
+            padding: 48px 44px;
+            box-shadow: 0 32px 64px rgba(0,0,0,0.5);
+        }
+        .brand { display: flex; align-items: center; gap: 14px; margin-bottom: 32px; justify-content: center; }
+        .brand-icon {
+            width: 52px; height: 52px;
+            background: linear-gradient(135deg, #0ea5e9, #6366f1);
+            border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px; color: white;
+            box-shadow: 0 8px 20px rgba(14,165,233,0.35);
+        }
+        .brand-name { font-size: 18px; font-weight: 800; color: white; }
+        .brand-sub { font-size: 12px; color: #64748b; }
+        .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); margin-bottom: 28px; }
+        .login-heading { text-align: center; margin-bottom: 28px; }
+        .login-heading h2 { font-size: 26px; font-weight: 800; color: white; margin-bottom: 6px; }
+        .login-heading p { font-size: 14px; color: #64748b; }
+        .field-group { margin-bottom: 18px; }
+        .field-label { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; }
+        .field-label i { font-size: 11px; color: #0ea5e9; }
+        .field-input-wrap { position: relative; }
+        .field-input {
+            width: 100%;
+            background: rgba(15,23,42,0.8);
+            border: 1.5px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            color: white;
+            padding: 13px 16px;
+            font-size: 14px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 500;
+            outline: none;
+            transition: all 0.25s ease;
+        }
+        .field-input::placeholder { color: #334155; }
+        .field-input:focus { border-color: #0ea5e9; background: rgba(14,165,233,0.06); box-shadow: 0 0 0 4px rgba(14,165,233,0.1); }
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0px 1000px #0f1e35 inset !important;
+            -webkit-text-fill-color: white !important;
+        }
+        .toggle-password {
+            position: absolute;
+            right: 14px; top: 50%;
+            transform: translateY(-50%);
+            color: #475569;
+            cursor: pointer;
+            font-size: 14px;
+            transition: color 0.2s;
+            background: none; border: none;
+        }
+        .toggle-password:hover { color: #0ea5e9; }
+        .field-input.has-toggle { padding-right: 44px; }
+        .remember-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+        .remember-check { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+        .remember-check input[type="checkbox"] { width: 16px; height: 16px; accent-color: #0ea5e9; cursor: pointer; }
+        .remember-check span { font-size: 13px; color: #94a3b8; }
+        .forgot-link { font-size: 13px; color: #0ea5e9; text-decoration: none; transition: opacity 0.2s; }
+        .forgot-link:hover { opacity: 0.8; color: #0ea5e9; }
+        .btn-login {
+            width: 100%; padding: 14px;
+            background: linear-gradient(135deg, #0ea5e9, #6366f1);
+            border: none; border-radius: 12px;
+            color: white; font-size: 15px; font-weight: 700;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            cursor: pointer; transition: all 0.25s;
+            box-shadow: 0 8px 24px rgba(14,165,233,0.3);
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        .btn-login:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(14,165,233,0.4); }
+        .btn-login:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+        .error-msg {
+            background: rgba(239,68,68,0.1);
+            border: 1px solid rgba(239,68,68,0.25);
+            border-radius: 12px; padding: 12px 16px;
+            color: #ef4444; font-size: 13px;
+            margin-bottom: 20px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .role-badges { display: flex; gap: 8px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+        .role-badge {
+            padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 600;
+        }
+        .spinner { display: none; width: 16px; height: 16px; border: 2px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 0.8s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @media (max-width: 480px) {
+            .login-card { padding: 32px 24px; }
+        }
+    </style>
+</head>
+<body>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+
+<div class="login-wrapper">
+    <div class="login-card">
+        <div class="brand">
+            <div class="brand-icon"><i class="fas fa-heartbeat"></i></div>
+            <div>
+                <div class="brand-name">Clinic Dashboard</div>
+                <div class="brand-sub">Management System</div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="login-heading">
+            <h2>Welcome back! 👋</h2>
+            <p>Sign in to your account to continue</p>
+        </div>
+
+        {% if messages %}
+        {% for msg in messages %}
+        <div class="error-msg">
+            <i class="fas {% if msg.tags == 'success' %}fa-check-circle{% else %}fa-exclamation-circle{% endif %}"
+               style="{% if msg.tags == 'success' %}color: #10b981{% endif %}"></i>
+            <span style="{% if msg.tags == 'success' %}color: #10b981{% endif %}">{{ msg }}</span>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        <form method="post" id="loginForm">
+            {% csrf_token %}
+
+            <div class="field-group">
+                <div class="field-label"><i class="fas fa-user"></i> Username</div>
+                <input type="text" name="username" class="field-input" placeholder="Enter your username" autocomplete="username" required>
+            </div>
+
+            <div class="field-group">
+                <div class="field-label"><i class="fas fa-lock"></i> Password</div>
+                <div class="field-input-wrap">
+                    <input type="password" name="password" id="passwordInput" class="field-input has-toggle" placeholder="Enter your password" autocomplete="current-password" required>
+                    <button type="button" class="toggle-password" onclick="togglePassword()">
+                        <i class="fas fa-eye" id="eyeIcon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="remember-row">
+                <label class="remember-check">
+                    <input type="checkbox" name="remember_me" value="1">
+                    <span>Remember me</span>
+                </label>
+                <a href="/forgot-password/" class="forgot-link">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn-login" id="loginBtn" onclick="handleLogin(this)">
+                <div class="spinner" id="spinner"></div>
+                <i class="fas fa-sign-in-alt" id="loginIcon"></i>
+                <span id="loginText">Sign In</span>
+            </button>
+        </form>
+
+        <div class="role-badges">
+            <span class="role-badge" style="background:rgba(14,165,233,0.15); color:#0ea5e9;">👑 Admin</span>
+            <span class="role-badge" style="background:rgba(16,185,129,0.15); color:#10b981;">👨‍⚕️ Staff</span>
+            <span class="role-badge" style="background:rgba(99,102,241,0.15); color:#6366f1;">🧑 Patient</span>
+        </div>
+    </div>
+</div>
+
+<<script>
+function togglePassword() {
+    const input = document.getElementById('passwordInput');
+    const icon = document.getElementById('eyeIcon');
+    if (input.type === 'password') {
+        input.type = 'text';
+        icon.className = 'fas fa-eye-slash';
+    } else {
+        input.type = 'password';
+        icon.className = 'fas fa-eye';
+    }
+}
+
+function handleLogin(btn) {
+    const form = btn.closest('form');
+
+    // Basic validation
+    const username = form.querySelector('input[name="username"]').value.trim();
+    const password = document.getElementById('passwordInput').value.trim();
+
+    if (!username || !password) {
+        return; // Form submit honar nahi
+    }
+
+    // Loading state
+    const spinner = document.getElementById('spinner');
+    const icon = document.getElementById('loginIcon');
+    const text = document.getElementById('loginText');
+    spinner.style.display = 'block';
+    icon.style.display = 'none';
+    text.textContent = 'Signing in...';
+    btn.disabled = true;
+
+    // Form submit
+    form.submit();
+}
+</script>
+</body>
+</html>

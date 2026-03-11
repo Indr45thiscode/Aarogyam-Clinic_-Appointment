@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% block title %}Patients - Clinic{% endblock %}
+{% block page_title %}Patients{% endblock %}
+
+{% block content %}
+
+{% if messages %}
+{% for msg in messages %}
+<div style="
+    padding: 14px 18px; border-radius: 12px; margin-bottom: 20px;
+    font-size: 14px; font-weight: 500; display: flex; align-items: center; gap: 10px;
+    {% if msg.tags == 'success' %}
+    background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3); color: #10b981;
+    {% else %}
+    background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.3); color: #ef4444;
+    {% endif %}
+">
+    <i class="fas {% if msg.tags == 'success' %}fa-check-circle{% else %}fa-exclamation-circle{% endif %}"></i>
+    {{ msg }}
+</div>
+{% endfor %}
+{% endif %}
+
+<div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px;">
+    <div style="font-size: 13px; color: #94a3b8;">Total: <strong style="color: #e2e8f0;">{{ patients|length }} Patients</strong></div>
+    <a href="/patients/add/" style="
+        background: linear-gradient(135deg, #10b981, #047857);
+        color: white; padding: 10px 20px; border-radius: 10px;
+        text-decoration: none; font-size: 14px; font-weight: 600;
+        display: flex; align-items: center; gap: 8px;
+    "><i class="fas fa-user-plus"></i> Add Patient</a>
+</div>
+
+{% if patients %}
+<div class="dash-card" style="padding: 0; overflow: hidden;">
+    <table class="table table-dark table-hover mb-0" style="--bs-table-bg: transparent;">
+        <thead>
+            <tr style="border-color: rgba(255,255,255,0.07); background: rgba(255,255,255,0.03);">
+                <th style="color: #94a3b8; font-size: 12px; font-weight: 600; padding: 14px 20px;">#</th>
+                <th style="color: #94a3b8; font-size: 12px; font-weight: 600; padding: 14px 20px;">NAME</th>
+                <th style="color: #94a3b8; font-size: 12px; font-weight: 600; padding: 14px 20px;">AGE / GENDER</th>
+                <th style="color: #94a3b8; font-size: 12px; font-weight: 600; padding: 14px 20px;">PHONE</th>
+                <th style="color: #94a3b8; font-size: 12px; font-weight: 600; padding: 14px 20px;">EMAIL</th>
+                <th style="color: #94a3b8; font-size: 12px; font-weight: 600; padding: 14px 20px;">ACTIONS</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for patient in patients %}
+            <tr style="border-color: rgba(255,255,255,0.05);">
+                <td style="padding: 14px 20px; color: #64748b; font-size: 13px;">{{ forloop.counter }}</td>
+                <td style="padding: 14px 20px;">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div style="
+                            width: 38px; height: 38px;
+                            background: linear-gradient(135deg, #10b981, #047857);
+                            border-radius: 50%; display: flex; align-items: center;
+                            justify-content: center; font-size: 14px; color: white; font-weight: 700;
+                            flex-shrink: 0;
+                        ">{{ patient.first_name|first }}{{ patient.last_name|first }}</div>
+                        <div>
+                            <div style="font-size: 14px; font-weight: 600; color: white;">{{ patient.first_name }} {{ patient.last_name }}</div>
+                            <div style="font-size: 12px; color: #64748b;">Added {{ patient.created_at|date:"d M Y" }}</div>
+                        </div>
+                    </div>
+                </td>
+                <td style="padding: 14px 20px; color: #94a3b8; font-size: 14px;">
+                    {{ patient.age }} yrs &nbsp;
+                    <span style="
+                        padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 600;
+                        {% if patient.gender == 'M' %}background: rgba(14,165,233,0.15); color: #0ea5e9;
+                        {% elif patient.gender == 'F' %}background: rgba(236,72,153,0.15); color: #ec4899;
+                        {% else %}background: rgba(148,163,184,0.15); color: #94a3b8;{% endif %}
+                    ">{{ patient.get_gender_display }}</span>
+                </td>
+                <td style="padding: 14px 20px; color: #94a3b8; font-size: 14px;">{{ patient.phone }}</td>
+                <td style="padding: 14px 20px; color: #94a3b8; font-size: 14px;">{{ patient.email }}</td>
+                <td style="padding: 14px 20px;">
+                    <div style="display: flex; gap: 8px;">
+                        <a href="/patients/{{ patient.pk }}/edit/" style="
+                            padding: 6px 12px;
+                            background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.25);
+                            border-radius: 6px; color: #6366f1; text-decoration: none;
+                            font-size: 12px; font-weight: 600;
+                        "><i class="fas fa-edit"></i></a>
+                        <a href="/patients/{{ patient.pk }}/delete/" style="
+                            padding: 6px 12px;
+                            background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.25);
+                            border-radius: 6px; color: #ef4444; text-decoration: none;
+                            font-size: 12px; font-weight: 600;
+                        "><i class="fas fa-trash"></i></a>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% else %}
+<div style="
+    background: #1e293b; border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px; padding: 60px 20px; text-align: center;
+">
+    <i class="fas fa-users" style="font-size: 48px; color: #334155; margin-bottom: 16px; display: block;"></i>
+    <div style="font-size: 18px; font-weight: 600; color: #e2e8f0; margin-bottom: 8px;">No Patients Yet</div>
+    <div style="font-size: 14px; color: #94a3b8; margin-bottom: 24px;">Pehla patient add kara!</div>
+    <a href="/patients/add/" style="
+        background: linear-gradient(135deg, #10b981, #047857);
+        color: white; padding: 12px 24px; border-radius: 10px;
+        text-decoration: none; font-size: 14px; font-weight: 600;
+    "><i class="fas fa-user-plus me-2"></i>Add Patient</a>
+</div>
+{% endif %}
+
+{% endblock %}

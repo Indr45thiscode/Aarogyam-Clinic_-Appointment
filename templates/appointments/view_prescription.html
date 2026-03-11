@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% block title %}Prescription{% endblock %}
+{% block page_title %}Prescription{% endblock %}
+{% block content %}
+
+<div style="max-width:800px; margin:0 auto;">
+
+  <!-- Action Buttons -->
+  <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:24px;">
+    <a href="{% url 'appointment_list' %}" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:white; padding:8px 16px; border-radius:8px; text-decoration:none; font-size:13px;">
+      <i class="fas fa-arrow-left me-1"></i> Back
+    </a>
+    <div style="display:flex; gap:10px;">
+      <a href="{% url 'add_prescription' appointment.id %}" style="background:rgba(14,165,233,0.1); border:1px solid rgba(14,165,233,0.2); color:var(--primary); padding:8px 16px; border-radius:8px; text-decoration:none; font-size:13px;">
+        <i class="fas fa-edit me-1"></i> Edit
+      </a>
+      <a href="{% url 'prescription_pdf' appointment.id %}" style="background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); color:#10b981; padding:8px 16px; border-radius:8px; text-decoration:none; font-size:13px;">
+        <i class="fas fa-file-pdf me-1"></i> Download PDF
+      </a>
+    </div>
+  </div>
+
+  <!-- Prescription Card -->
+  <div style="background:#1e293b; border:1px solid rgba(255,255,255,0.07); border-radius:16px; padding:32px;">
+
+    <!-- Clinic Header -->
+    <div style="text-align:center; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:20px; margin-bottom:24px;">
+      <div style="font-size:20px; font-weight:700; color:#10b981;">🏥 Aarogyam Multi-Speciality Clinic</div>
+      <div style="font-size:12px; color:#64748b; margin-top:4px;">Virar West, Maharashtra – 401303</div>
+      <div style="margin-top:10px;">
+        <span style="background:rgba(16,185,129,0.1); color:#10b981; padding:4px 12px; border-radius:20px; font-size:13px; font-weight:600;">
+          Dr. {{ appointment.doctor }}
+        </span>
+        <span style="background:rgba(99,102,241,0.1); color:#6366f1; padding:4px 12px; border-radius:20px; font-size:13px; margin-left:8px;">
+          {{ appointment.doctor.specialization }}
+        </span>
+      </div>
+    </div>
+
+    <!-- Patient Info -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:24px;">
+      <div style="background:#0f172a; border-radius:10px; padding:16px;">
+        <div style="font-size:11px; color:#64748b; margin-bottom:4px;">PATIENT</div>
+        <div style="font-size:16px; font-weight:700; color:white;">{{ appointment.patient }}</div>
+        <div style="font-size:13px; color:#94a3b8; margin-top:2px;">{{ appointment.patient.phone }}</div>
+      </div>
+      <div style="background:#0f172a; border-radius:10px; padding:16px;">
+        <div style="display:flex; justify-content:space-between;">
+          <div>
+            <div style="font-size:11px; color:#64748b; margin-bottom:4px;">DATE</div>
+            <div style="font-size:14px; font-weight:600; color:white;">{{ appointment.appointment_date }}</div>
+          </div>
+          <div>
+            <div style="font-size:11px; color:#64748b; margin-bottom:4px;">TIME</div>
+            <div style="font-size:14px; font-weight:600; color:white;">{{ appointment.time_slot }}</div>
+          </div>
+          <div>
+            <div style="font-size:11px; color:#64748b; margin-bottom:4px;">APPT #</div>
+            <div style="font-size:14px; font-weight:600; color:white;">#{{ appointment.id }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% if prescription %}
+
+      <!-- Diagnosis -->
+      {% if prescription.diagnosis %}
+      <div style="margin-bottom:20px;">
+        <div style="font-size:12px; font-weight:700; color:#10b981; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">
+          <i class="fas fa-stethoscope me-2"></i>Diagnosis
+        </div>
+        <div style="background:#0f172a; border-radius:10px; padding:16px; color:#e2e8f0; line-height:1.6;">
+          {{ prescription.diagnosis }}
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- Medicines -->
+      {% if medicines %}
+      <div style="margin-bottom:20px;">
+        <div style="font-size:12px; font-weight:700; color:#10b981; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">
+          <i class="fas fa-pills me-2"></i>Medicines Prescribed
+        </div>
+        <div style="border-radius:10px; overflow:hidden; border:1px solid rgba(255,255,255,0.07);">
+          <table style="width:100%; border-collapse:collapse;">
+            <thead>
+              <tr style="background:#0ea5e9;">
+                <th style="padding:10px 16px; color:white; font-size:12px; text-align:left;">#</th>
+                <th style="padding:10px 16px; color:white; font-size:12px; text-align:left;">Medicine</th>
+                <th style="padding:10px 16px; color:white; font-size:12px; text-align:left;">Dosage</th>
+                <th style="padding:10px 16px; color:white; font-size:12px; text-align:left;">Duration</th>
+                <th style="padding:10px 16px; color:white; font-size:12px; text-align:left;">Instructions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for med in medicines %}
+              <tr style="border-bottom:1px solid rgba(255,255,255,0.05); {% if forloop.even %}background:rgba(255,255,255,0.02);{% endif %}">
+                <td style="padding:12px 16px; color:#64748b; font-size:13px;">{{ forloop.counter }}</td>
+                <td style="padding:12px 16px; color:white; font-weight:600; font-size:14px;">{{ med.name }}</td>
+                <td style="padding:12px 16px; color:#0ea5e9; font-size:13px;">{{ med.dosage|default:"—" }}</td>
+                <td style="padding:12px 16px; color:#f59e0b; font-size:13px;">{{ med.duration|default:"—" }}</td>
+                <td style="padding:12px 16px; color:#94a3b8; font-size:13px;">{{ med.instructions|default:"—" }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- Doctor Notes -->
+      {% if prescription.doctor_notes %}
+      <div style="margin-bottom:20px;">
+        <div style="font-size:12px; font-weight:700; color:#10b981; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">
+          <i class="fas fa-notes-medical me-2"></i>Doctor Notes
+        </div>
+        <div style="background:#0f172a; border-radius:10px; padding:16px; color:#e2e8f0; line-height:1.6;">
+          {{ prescription.doctor_notes }}
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- Next Visit -->
+      {% if prescription.next_visit_date %}
+      <div style="background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); border-radius:10px; padding:16px; margin-bottom:20px;">
+        <i class="fas fa-calendar-check me-2" style="color:#10b981;"></i>
+        <strong style="color:#10b981;">Next Visit:</strong>
+        <span style="color:white; margin-left:8px;">{{ prescription.next_visit_date }}</span>
+      </div>
+      {% endif %}
+
+      <!-- Signature -->
+      <div style="text-align:right; padding-top:20px; border-top:1px solid rgba(255,255,255,0.07);">
+        <div style="font-size:11px; color:#64748b; margin-bottom:4px;">{{ prescription.created_at|date:"d M Y, H:i" }}</div>
+        <div style="font-size:15px; font-weight:700; color:white;">Dr. {{ appointment.doctor }}</div>
+        <div style="font-size:13px; color:#10b981;">{{ appointment.doctor.specialization }}</div>
+      </div>
+
+    {% else %}
+      <div style="text-align:center; padding:40px; color:#64748b;">
+        <i class="fas fa-file-medical" style="font-size:40px; margin-bottom:12px; display:block;"></i>
+        No prescription found.
+      </div>
+    {% endif %}
+
+  </div>
+</div>
+
+{% endblock %}
