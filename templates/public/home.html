@@ -834,538 +834,1329 @@ body { padding-top: 72px; }
 </section>
 
 <!-- CLINIC INFO -->
-<section style="padding: 0 0 50px;">
+<section style="padding: 0 0 60px;">
     <div class="container">
         <div class="row g-3">
+
             <div class="col-md-4">
-                <div class="info-card">
-                    <div class="info-icon" style="background:rgba(14,165,233,0.12); color:var(--primary);"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="info-card" style="
+                    background: linear-gradient(135deg, rgba(14,165,233,0.06), rgba(14,165,233,0.02));
+                    border: 1px solid rgba(14,165,233,0.15);
+                    border-radius: 16px; padding: 24px 20px;
+                    display: flex; align-items: flex-start; gap: 16px;
+                    transition: all 0.3s ease; cursor: default;
+                    min-height: 100px;
+                " onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='rgba(14,165,233,0.4)'; this.style.boxShadow='0 16px 40px rgba(14,165,233,0.12)'"
+                   onmouseout="this.style.transform='none'; this.style.borderColor='rgba(14,165,233,0.15)'; this.style.boxShadow='none'">
+                    <div style="
+                        width: 46px; height: 46px; flex-shrink: 0;
+                        background: rgba(14,165,233,0.12);
+                        border-radius: 12px;
+                        display: flex; align-items: center; justify-content: center;
+                        font-size: 18px; color: #0ea5e9;
+                        box-shadow: 0 4px 12px rgba(14,165,233,0.2);
+                    "><i class="fas fa-map-marker-alt"></i></div>
                     <div>
-                        <div class="info-label">Address</div>
-                        <div class="info-value">2nd Floor, Shanti Plaza, Near Metro Station, Virar West, MH – 401303</div>
+                        <div style="font-size: 10px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">Address</div>
+                        <div style="font-size: 13px; color: #e2e8f0; font-weight: 500; line-height: 1.6;">2nd Floor, Shanti Plaza, Near Metro Station,<br>Virar West, MH – 401303</div>
                     </div>
                 </div>
             </div>
+
             <div class="col-md-4">
-                <div class="info-card">
-                    <div class="info-icon" style="background:rgba(16,185,129,0.12); color:var(--success);"><i class="fas fa-phone"></i></div>
+                <div class="info-card" style="
+                    background: linear-gradient(135deg, rgba(16,185,129,0.06), rgba(16,185,129,0.02));
+                    border: 1px solid rgba(16,185,129,0.15);
+                    border-radius: 16px; padding: 24px 20px;
+                    display: flex; align-items: flex-start; gap: 16px;
+                    transition: all 0.3s ease; cursor: default;
+                    min-height: 100px;
+                " onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='rgba(16,185,129,0.4)'; this.style.boxShadow='0 16px 40px rgba(16,185,129,0.12)'"
+                   onmouseout="this.style.transform='none'; this.style.borderColor='rgba(16,185,129,0.15)'; this.style.boxShadow='none'">
+                    <div style="
+                        width: 46px; height: 46px; flex-shrink: 0;
+                        background: rgba(16,185,129,0.12);
+                        border-radius: 12px;
+                        display: flex; align-items: center; justify-content: center;
+                        font-size: 18px; color: #10b981;
+                        box-shadow: 0 4px 12px rgba(16,185,129,0.2);
+                    "><i class="fas fa-phone-alt"></i></div>
                     <div>
-                        <div class="info-label">Phone</div>
-                        <div class="info-value">+91 98765 43210</div>
+                        <div style="font-size: 10px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">Call Us</div>
+                        <div style="font-size: 13px; color: #e2e8f0; font-weight: 500; line-height: 1.6;">
+                            <a href="tel:+919876543210" style="color: #e2e8f0; text-decoration: none;">+91 98765 43210</a>
+                        </div>
+                        <div style="font-size: 11px; color: #64748b; margin-top: 4px;">Available Mon – Sat</div>
                     </div>
                 </div>
             </div>
+
             <div class="col-md-4">
-                <div class="info-card">
-                    <div class="info-icon" style="background:rgba(245,158,11,0.12); color:var(--warning);"><i class="fas fa-clock"></i></div>
+                <div class="info-card" style="
+                    background: linear-gradient(135deg, rgba(245,158,11,0.06), rgba(245,158,11,0.02));
+                    border: 1px solid rgba(245,158,11,0.15);
+                    border-radius: 16px; padding: 24px 20px;
+                    display: flex; align-items: flex-start; gap: 16px;
+                    transition: all 0.3s ease; cursor: default;
+                    min-height: 100px;
+                " onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='rgba(245,158,11,0.4)'; this.style.boxShadow='0 16px 40px rgba(245,158,11,0.12)'"
+                   onmouseout="this.style.transform='none'; this.style.borderColor='rgba(245,158,11,0.15)'; this.style.boxShadow='none'">
+                    <div style="
+                        width: 46px; height: 46px; flex-shrink: 0;
+                        background: rgba(245,158,11,0.12);
+                        border-radius: 12px;
+                        display: flex; align-items: center; justify-content: center;
+                        font-size: 18px; color: #f59e0b;
+                        box-shadow: 0 4px 12px rgba(245,158,11,0.2);
+                    "><i class="fas fa-clock"></i></div>
                     <div>
-                        <div class="info-label">Timing</div>
-                        <div class="info-value">Mon – Sat, 9:00 AM – 6:00 PM</div>
+                        <div style="font-size: 10px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">Timing</div>
+                        <div style="font-size: 13px; color: #e2e8f0; font-weight: 500; line-height: 1.6;">Mon – Sat: 9:00 AM – 6:00 PM</div>
+                        <div style="font-size: 11px; color: #ef4444; margin-top: 4px;">
+                            <i class="fas fa-circle" style="font-size: 7px;"></i> Sunday Closed
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
 
 <!-- ABOUT -->
-<section class="section" id="about" style="background: rgba(30,41,59,0.4);">
-    <div class="container">
+<section class="section" id="about" style="position:relative; overflow:hidden; background: linear-gradient(180deg, #0a1628 0%, #0f172a 50%, #0a1628 100%);">
+
+    <!-- Background decoration -->
+    <div style="position:absolute; top:-100px; right:-100px; width:500px; height:500px; background:radial-gradient(circle, rgba(14,165,233,0.05) 0%, transparent 70%); pointer-events:none;"></div>
+    <div style="position:absolute; bottom:-100px; left:-100px; width:400px; height:400px; background:radial-gradient(circle, rgba(99,102,241,0.05) 0%, transparent 70%); pointer-events:none;"></div>
+
+    <!-- Horizontal line accent -->
+    <div style="position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg, transparent, rgba(14,165,233,0.3), transparent);"></div>
+
+    <div class="container" style="position:relative; z-index:1;">
+
+        <!-- HEADER -->
+        <div style="text-align:center; margin-bottom:64px;" class="about-reveal">
+            <div style="
+                display:inline-flex; align-items:center; gap:8px;
+                background:rgba(14,165,233,0.08);
+                border:1px solid rgba(14,165,233,0.2);
+                border-radius:20px; padding:6px 16px;
+                font-size:11px; font-weight:700; color:#0ea5e9;
+                text-transform:uppercase; letter-spacing:1.5px;
+                margin-bottom:16px;
+            ">
+                <i class="fas fa-hospital" style="font-size:10px;"></i> About Us
+            </div>
+            <h2 style="font-size:36px; font-weight:800; color:white; letter-spacing:-0.5px; margin-bottom:12px; line-height:1.2;">
+                About <span style="background:linear-gradient(135deg,#0ea5e9,#6366f1); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Aarogyam</span> Clinic
+            </h2>
+            <p style="font-size:15px; color:#64748b; max-width:520px; margin:0 auto; line-height:1.7;">
+                Providing trusted multi-speciality healthcare to the community since 2005 — with compassion, precision, and modern medicine.
+            </p>
+        </div>
+
         <div class="row align-items-center g-5">
 
-            <!-- LEFT — Content -->
+            <!-- LEFT — Feature Points -->
             <div class="col-lg-6">
-                <div class="sec-badge">About Us</div>
-                <div class="sec-title">About Aarogyam Clinic</div>
-                <div class="sec-sub" style="margin-bottom:28px;">
-                    Providing trusted multi-speciality healthcare services to the community since 2005.
-                </div>
 
-                <div class="about-point">
-                    <div class="about-point-icon" style="background:rgba(14,165,233,0.12); color:var(--primary);">
-                        <i class="fas fa-user-md"></i>
-                    </div>
+                <!-- Point 1 -->
+                <div class="about-point-card about-reveal" style="
+                    display:flex; align-items:flex-start; gap:18px;
+                    background:rgba(14,165,233,0.04);
+                    border:1px solid rgba(14,165,233,0.1);
+                    border-radius:16px; padding:22px 20px;
+                    margin-bottom:14px;
+                    transition: all 0.3s ease;
+                    cursor:default;
+                "
+                onmouseover="this.style.background='rgba(14,165,233,0.08)'; this.style.borderColor='rgba(14,165,233,0.3)'; this.style.transform='translateX(6px)'"
+                onmouseout="this.style.background='rgba(14,165,233,0.04)'; this.style.borderColor='rgba(14,165,233,0.1)'; this.style.transform='none'">
+                    <div style="
+                        width:48px; height:48px; flex-shrink:0;
+                        background:linear-gradient(135deg, rgba(14,165,233,0.2), rgba(14,165,233,0.08));
+                        border:1px solid rgba(14,165,233,0.2);
+                        border-radius:14px;
+                        display:flex; align-items:center; justify-content:center;
+                        font-size:18px; color:#0ea5e9;
+                        box-shadow: 0 4px 16px rgba(14,165,233,0.15);
+                    "><i class="fas fa-user-md"></i></div>
                     <div>
-                        <div style="font-size:14px; font-weight:600; color:white; margin-bottom:4px;">Expert Medical Team</div>
-                        <div style="font-size:13px; color:var(--muted); line-height:1.6;">
-                            Our team of 13+ qualified specialists covers 18+ medical disciplines, bringing years of clinical experience and a commitment to delivering accurate diagnosis and effective treatment.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="about-point">
-                    <div class="about-point-icon" style="background:rgba(16,185,129,0.12); color:var(--success);">
-                        <i class="fas fa-hospital"></i>
-                    </div>
-                    <div>
-                        <div style="font-size:14px; font-weight:600; color:white; margin-bottom:4px;">Modern Medical Facilities</div>
-                        <div style="font-size:13px; color:var(--muted); line-height:1.6;">
-                            Our clinic is equipped with advanced diagnostic and treatment technology, maintained in a clean, safe, and hygienic environment that meets modern healthcare standards.
-                        </div>
+                        <div style="font-size:15px; font-weight:700; color:white; margin-bottom:6px; letter-spacing:-0.2px;">Expert Medical Team</div>
+                        <div style="font-size:13px; color:#64748b; line-height:1.7;">13+ qualified specialists across 18+ medical disciplines, bringing years of clinical experience and a commitment to accurate diagnosis and effective treatment.</div>
                     </div>
                 </div>
 
-                <div class="about-point">
-                    <div class="about-point-icon" style="background:rgba(245,158,11,0.12); color:var(--warning);">
-                        <i class="fas fa-heart"></i>
-                    </div>
+                <!-- Point 2 -->
+                <div class="about-point-card about-reveal" style="
+                    display:flex; align-items:flex-start; gap:18px;
+                    background:rgba(16,185,129,0.04);
+                    border:1px solid rgba(16,185,129,0.1);
+                    border-radius:16px; padding:22px 20px;
+                    margin-bottom:14px;
+                    transition: all 0.3s ease;
+                    cursor:default;
+                "
+                onmouseover="this.style.background='rgba(16,185,129,0.08)'; this.style.borderColor='rgba(16,185,129,0.3)'; this.style.transform='translateX(6px)'"
+                onmouseout="this.style.background='rgba(16,185,129,0.04)'; this.style.borderColor='rgba(16,185,129,0.1)'; this.style.transform='none'">
+                    <div style="
+                        width:48px; height:48px; flex-shrink:0;
+                        background:linear-gradient(135deg, rgba(16,185,129,0.2), rgba(16,185,129,0.08));
+                        border:1px solid rgba(16,185,129,0.2);
+                        border-radius:14px;
+                        display:flex; align-items:center; justify-content:center;
+                        font-size:18px; color:#10b981;
+                        box-shadow: 0 4px 16px rgba(16,185,129,0.15);
+                    "><i class="fas fa-hospital"></i></div>
                     <div>
-                        <div style="font-size:14px; font-weight:600; color:white; margin-bottom:4px;">Patient-First Approach</div>
-                        <div style="font-size:13px; color:var(--muted); line-height:1.6;">
-                            We place the patient at the center of every decision. Our approach emphasizes respect, transparency, and individualized care — ensuring every visit is comfortable and reassuring.
-                        </div>
+                        <div style="font-size:15px; font-weight:700; color:white; margin-bottom:6px; letter-spacing:-0.2px;">Modern Medical Facilities</div>
+                        <div style="font-size:13px; color:#64748b; line-height:1.7;">Advanced diagnostic and treatment technology in a clean, safe, hygienic environment meeting modern healthcare standards.</div>
                     </div>
                 </div>
 
-                <div class="about-point">
-                    <div class="about-point-icon" style="background:rgba(99,102,241,0.12); color:var(--secondary);">
-                        <i class="fas fa-calendar-check"></i>
-                    </div>
+                <!-- Point 3 -->
+                <div class="about-point-card about-reveal" style="
+                    display:flex; align-items:flex-start; gap:18px;
+                    background:rgba(245,158,11,0.04);
+                    border:1px solid rgba(245,158,11,0.1);
+                    border-radius:16px; padding:22px 20px;
+                    margin-bottom:14px;
+                    transition: all 0.3s ease;
+                    cursor:default;
+                "
+                onmouseover="this.style.background='rgba(245,158,11,0.08)'; this.style.borderColor='rgba(245,158,11,0.3)'; this.style.transform='translateX(6px)'"
+                onmouseout="this.style.background='rgba(245,158,11,0.04)'; this.style.borderColor='rgba(245,158,11,0.1)'; this.style.transform='none'">
+                    <div style="
+                        width:48px; height:48px; flex-shrink:0;
+                        background:linear-gradient(135deg, rgba(245,158,11,0.2), rgba(245,158,11,0.08));
+                        border:1px solid rgba(245,158,11,0.2);
+                        border-radius:14px;
+                        display:flex; align-items:center; justify-content:center;
+                        font-size:18px; color:#f59e0b;
+                        box-shadow: 0 4px 16px rgba(245,158,11,0.15);
+                    "><i class="fas fa-heart"></i></div>
                     <div>
-                        <div style="font-size:14px; font-weight:600; color:white; margin-bottom:4px;">Easy Appointment Booking</div>
-                        <div style="font-size:13px; color:var(--muted); line-height:1.6;">
-                            Book a consultation online in seconds — no login or registration required. Simply enter your name and mobile number, choose your doctor and preferred time slot, and you're done.
-                        </div>
+                        <div style="font-size:15px; font-weight:700; color:white; margin-bottom:6px; letter-spacing:-0.2px;">Patient-First Approach</div>
+                        <div style="font-size:13px; color:#64748b; line-height:1.7;">Every decision centers around the patient — respect, transparency, and individualized care ensuring every visit is comfortable and reassuring.</div>
                     </div>
                 </div>
+
+                <!-- Point 4 -->
+                <div class="about-point-card about-reveal" style="
+                    display:flex; align-items:flex-start; gap:18px;
+                    background:rgba(99,102,241,0.04);
+                    border:1px solid rgba(99,102,241,0.1);
+                    border-radius:16px; padding:22px 20px;
+                    transition: all 0.3s ease;
+                    cursor:default;
+                "
+                onmouseover="this.style.background='rgba(99,102,241,0.08)'; this.style.borderColor='rgba(99,102,241,0.3)'; this.style.transform='translateX(6px)'"
+                onmouseout="this.style.background='rgba(99,102,241,0.04)'; this.style.borderColor='rgba(99,102,241,0.1)'; this.style.transform='none'">
+                    <div style="
+                        width:48px; height:48px; flex-shrink:0;
+                        background:linear-gradient(135deg, rgba(99,102,241,0.2), rgba(99,102,241,0.08));
+                        border:1px solid rgba(99,102,241,0.2);
+                        border-radius:14px;
+                        display:flex; align-items:center; justify-content:center;
+                        font-size:18px; color:#6366f1;
+                        box-shadow: 0 4px 16px rgba(99,102,241,0.15);
+                    "><i class="fas fa-calendar-check"></i></div>
+                    <div>
+                        <div style="font-size:15px; font-weight:700; color:white; margin-bottom:6px; letter-spacing:-0.2px;">Easy Appointment Booking</div>
+                        <div style="font-size:13px; color:#64748b; line-height:1.7;">Book a consultation online in seconds — no login required. Just enter your name, choose doctor and time slot, and you're done.</div>
+                    </div>
+                </div>
+
             </div>
 
-            <!-- RIGHT — Stats -->
-            <div class="col-lg-6">
+            <!-- RIGHT — Animated Stats Grid -->
+            <div class="col-lg-6 about-reveal">
                 <div class="row g-3">
+
+                    <!-- Stat 1 -->
                     <div class="col-6">
-                        <div style="background:linear-gradient(135deg,var(--primary),#0369a1); border-radius:16px; padding:32px 24px; text-align:center;">
-                            <div class="counter-num" style="font-size:40px; font-weight:800; color:white; line-height:1;"
-                                data-target="21" data-suffix="+">0+</div>
-                            <div style="font-size:11px; color:rgba(255,255,255,0.75); text-transform:uppercase; letter-spacing:0.8px; margin-top:8px;">Years of Excellence</div>
+                        <div style="
+                            background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
+                            border-radius: 20px; padding: 32px 24px;
+                            text-align: center; position: relative; overflow: hidden;
+                            transition: transform 0.3s ease, box-shadow 0.3s ease;
+                            cursor: default;
+                        "
+                        onmouseover="this.style.transform='translateY(-6px) scale(1.02)'; this.style.boxShadow='0 24px 48px rgba(14,165,233,0.35)'"
+                        onmouseout="this.style.transform='none'; this.style.boxShadow='none'">
+                            <div style="position:absolute; top:-20px; right:-20px; width:80px; height:80px; background:rgba(255,255,255,0.06); border-radius:50%;"></div>
+                            <div style="position:absolute; bottom:-30px; left:-10px; width:100px; height:100px; background:rgba(255,255,255,0.04); border-radius:50%;"></div>
+                            <div class="counter-num" style="font-size:44px; font-weight:800; color:white; line-height:1; position:relative; z-index:1;" data-target="21" data-suffix="+">0+</div>
+                            <div style="font-size:11px; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:1px; margin-top:10px; font-weight:600; position:relative; z-index:1;">Years of Excellence</div>
+                            <div style="margin-top:10px; position:relative; z-index:1;"><i class="fas fa-award" style="color:rgba(255,255,255,0.3); font-size:20px;"></i></div>
                         </div>
                     </div>
+
+                    <!-- Stat 2 -->
                     <div class="col-6">
-                        <div style="background:linear-gradient(135deg,var(--success),#047857); border-radius:16px; padding:32px 24px; text-align:center;">
-                            <div class="counter-num" style="font-size:40px; font-weight:800; color:white; line-height:1;"
-                                data-target="13" data-suffix="+">0+</div>
-                            <div style="font-size:11px; color:rgba(255,255,255,0.75); text-transform:uppercase; letter-spacing:0.8px; margin-top:8px;">Expert Doctors</div>
+                        <div style="
+                            background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+                            border-radius: 20px; padding: 32px 24px;
+                            text-align: center; position: relative; overflow: hidden;
+                            transition: transform 0.3s ease, box-shadow 0.3s ease;
+                            cursor: default;
+                        "
+                        onmouseover="this.style.transform='translateY(-6px) scale(1.02)'; this.style.boxShadow='0 24px 48px rgba(16,185,129,0.35)'"
+                        onmouseout="this.style.transform='none'; this.style.boxShadow='none'">
+                            <div style="position:absolute; top:-20px; right:-20px; width:80px; height:80px; background:rgba(255,255,255,0.06); border-radius:50%;"></div>
+                            <div style="position:absolute; bottom:-30px; left:-10px; width:100px; height:100px; background:rgba(255,255,255,0.04); border-radius:50%;"></div>
+                            <div class="counter-num" style="font-size:44px; font-weight:800; color:white; line-height:1; position:relative; z-index:1;" data-target="13" data-suffix="+">0+</div>
+                            <div style="font-size:11px; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:1px; margin-top:10px; font-weight:600; position:relative; z-index:1;">Expert Doctors</div>
+                            <div style="margin-top:10px; position:relative; z-index:1;"><i class="fas fa-user-md" style="color:rgba(255,255,255,0.3); font-size:20px;"></i></div>
                         </div>
                     </div>
+
+                    <!-- Stat 3 -->
                     <div class="col-6">
-                        <div style="background:linear-gradient(135deg,var(--warning),#b45309); border-radius:16px; padding:32px 24px; text-align:center;">
-                            <div class="counter-num" style="font-size:40px; font-weight:800; color:white; line-height:1;"
-                                data-target="18" data-suffix="+">0+</div>
-                            <div style="font-size:11px; color:rgba(255,255,255,0.75); text-transform:uppercase; letter-spacing:0.8px; margin-top:8px;">Specializations</div>
+                        <div style="
+                            background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%);
+                            border-radius: 20px; padding: 32px 24px;
+                            text-align: center; position: relative; overflow: hidden;
+                            transition: transform 0.3s ease, box-shadow 0.3s ease;
+                            cursor: default;
+                        "
+                        onmouseover="this.style.transform='translateY(-6px) scale(1.02)'; this.style.boxShadow='0 24px 48px rgba(245,158,11,0.35)'"
+                        onmouseout="this.style.transform='none'; this.style.boxShadow='none'">
+                            <div style="position:absolute; top:-20px; right:-20px; width:80px; height:80px; background:rgba(255,255,255,0.06); border-radius:50%;"></div>
+                            <div style="position:absolute; bottom:-30px; left:-10px; width:100px; height:100px; background:rgba(255,255,255,0.04); border-radius:50%;"></div>
+                            <div class="counter-num" style="font-size:44px; font-weight:800; color:white; line-height:1; position:relative; z-index:1;" data-target="18" data-suffix="+">0+</div>
+                            <div style="font-size:11px; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:1px; margin-top:10px; font-weight:600; position:relative; z-index:1;">Specializations</div>
+                            <div style="margin-top:10px; position:relative; z-index:1;"><i class="fas fa-stethoscope" style="color:rgba(255,255,255,0.3); font-size:20px;"></i></div>
                         </div>
                     </div>
+
+                    <!-- Stat 4 -->
                     <div class="col-6">
-                        <div style="background:linear-gradient(135deg,var(--secondary),#4338ca); border-radius:16px; padding:32px 24px; text-align:center;">
-                            <div class="counter-num" style="font-size:40px; font-weight:800; color:white; line-height:1;"
-                                data-target="5000" data-suffix="+">0+</div>
-                            <div style="font-size:11px; color:rgba(255,255,255,0.75); text-transform:uppercase; letter-spacing:0.8px; margin-top:8px;">Happy Patients</div>
+                        <div style="
+                            background: linear-gradient(135deg, #6366f1 0%, #4338ca 100%);
+                            border-radius: 20px; padding: 32px 24px;
+                            text-align: center; position: relative; overflow: hidden;
+                            transition: transform 0.3s ease, box-shadow 0.3s ease;
+                            cursor: default;
+                        "
+                        onmouseover="this.style.transform='translateY(-6px) scale(1.02)'; this.style.boxShadow='0 24px 48px rgba(99,102,241,0.35)'"
+                        onmouseout="this.style.transform='none'; this.style.boxShadow='none'">
+                            <div style="position:absolute; top:-20px; right:-20px; width:80px; height:80px; background:rgba(255,255,255,0.06); border-radius:50%;"></div>
+                            <div style="position:absolute; bottom:-30px; left:-10px; width:100px; height:100px; background:rgba(255,255,255,0.04); border-radius:50%;"></div>
+                            <div class="counter-num" style="font-size:44px; font-weight:800; color:white; line-height:1; position:relative; z-index:1;" data-target="5000" data-suffix="+">0+</div>
+                            <div style="font-size:11px; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:1px; margin-top:10px; font-weight:600; position:relative; z-index:1;">Happy Patients</div>
+                            <div style="margin-top:10px; position:relative; z-index:1;"><i class="fas fa-heart" style="color:rgba(255,255,255,0.3); font-size:20px;"></i></div>
                         </div>
                     </div>
+
+                    <!-- Trust Badge -->
+                    <div class="col-12">
+                        <div style="
+                            background: rgba(14,165,233,0.05);
+                            border: 1px solid rgba(14,165,233,0.15);
+                            border-radius: 16px; padding: 18px 24px;
+                            display: flex; align-items: center;
+                            justify-content: space-between; flex-wrap: wrap; gap: 12px;
+                        ">
+                            <div style="display:flex; align-items:center; gap:10px;">
+                                <div style="width:36px; height:36px; background:rgba(14,165,233,0.15); border-radius:10px; display:flex; align-items:center; justify-content:center; color:#0ea5e9; font-size:14px;">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div>
+                                    <div style="font-size:13px; font-weight:700; color:white;">Trusted Since 2005</div>
+                                    <div style="font-size:11px; color:#64748b;">21 years of quality healthcare</div>
+                                </div>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:6px;">
+                                <i class="fas fa-star" style="color:#f59e0b; font-size:13px;"></i>
+                                <i class="fas fa-star" style="color:#f59e0b; font-size:13px;"></i>
+                                <i class="fas fa-star" style="color:#f59e0b; font-size:13px;"></i>
+                                <i class="fas fa-star" style="color:#f59e0b; font-size:13px;"></i>
+                                <i class="fas fa-star" style="color:#f59e0b; font-size:13px;"></i>
+                                <span style="font-size:12px; color:#94a3b8; margin-left:4px;">5.0 Rating</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
         </div>
     </div>
+
+    <!-- Bottom line accent -->
+    <div style="position:absolute; bottom:0; left:0; right:0; height:1px; background:linear-gradient(90deg, transparent, rgba(99,102,241,0.3), transparent);"></div>
 </section>
 
 <!-- SERVICES -->
-<section class="section" id="services">
-    <div class="container">
+<section class="section" id="services" style="position:relative; overflow:hidden; background: linear-gradient(180deg, #0f172a 0%, #0a1628 50%, #0f172a 100%);">
+
+    <!-- Background glows -->
+    <div style="position:absolute; top:-80px; right:-80px; width:400px; height:400px; background:radial-gradient(circle, rgba(99,102,241,0.06) 0%, transparent 70%); pointer-events:none;"></div>
+    <div style="position:absolute; bottom:-80px; left:-80px; width:350px; height:350px; background:radial-gradient(circle, rgba(14,165,233,0.05) 0%, transparent 70%); pointer-events:none;"></div>
+    <div style="position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg, transparent, rgba(99,102,241,0.3), transparent);"></div>
+
+    <div class="container" style="position:relative; z-index:1;">
 
         <!-- Header -->
-        <div style="text-align:center; margin-bottom:48px;">
-            <div class="sec-badge">What We Offer</div>
-            <div class="sec-title">Our Medical Services</div>
-            <div class="sec-sub">Expert healthcare services across multiple medical specializations.</div>
+        <div style="text-align:center; margin-bottom:56px;">
+            <div style="
+                display:inline-flex; align-items:center; gap:8px;
+                background:rgba(99,102,241,0.08);
+                border:1px solid rgba(99,102,241,0.2);
+                border-radius:20px; padding:6px 16px;
+                font-size:11px; font-weight:700; color:#6366f1;
+                text-transform:uppercase; letter-spacing:1.5px;
+                margin-bottom:16px;
+            ">
+                <i class="fas fa-stethoscope" style="font-size:10px;"></i> What We Offer
+            </div>
+            <h2 style="font-size:34px; font-weight:800; color:white; letter-spacing:-0.5px; margin-bottom:12px; line-height:1.2;">
+                Our Medical <span style="background:linear-gradient(135deg,#6366f1,#0ea5e9); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Services</span>
+            </h2>
+            <p style="font-size:14px; color:#64748b; max-width:480px; margin:0 auto; line-height:1.7;">
+                Expert healthcare across multiple specializations — delivered with precision, compassion, and modern medicine.
+            </p>
         </div>
 
-        <!-- Cards -->
-        <div class="row g-3">
+        <!-- Service Cards Grid — 6 cards -->
+        <div class="row g-4">
 
-            <div class="col-md-4 col-6">
-                <div class="service-card">
-                    <div class="service-icon" style="background:rgba(14,165,233,0.12); color:var(--primary);">
+            <!-- 1 Cardiology -->
+            <div class="col-lg-4 col-md-6">
+                <div class="svc-card" style="
+                    background: var(--dark2, #1e293b);
+                    border: 1px solid rgba(255,255,255,0.07);
+                    border-radius: 20px; padding: 32px 28px;
+                    height: 100%; position: relative; overflow: hidden;
+                    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                    cursor: default;
+                "
+                onmouseover="
+                    this.style.transform='translateY(-8px)';
+                    this.style.borderColor='rgba(14,165,233,0.35)';
+                    this.style.boxShadow='0 24px 48px rgba(14,165,233,0.12), 0 0 0 1px rgba(14,165,233,0.1)';
+                    this.style.background='linear-gradient(135deg, rgba(14,165,233,0.06), rgba(30,41,59,1))';
+                    this.querySelector('.svc-icon').style.transform='scale(1.12) rotate(-5deg)';
+                    this.querySelector('.svc-icon').style.boxShadow='0 8px 24px rgba(14,165,233,0.35)';
+                    this.querySelector('.svc-top-line').style.transform='scaleX(1)';
+                    this.querySelector('.svc-link').style.opacity='1';
+                    this.querySelector('.svc-link').style.transform='translateY(0)';
+                "
+                onmouseout="
+                    this.style.transform='none';
+                    this.style.borderColor='rgba(255,255,255,0.07)';
+                    this.style.boxShadow='none';
+                    this.style.background='#1e293b';
+                    this.querySelector('.svc-icon').style.transform='none';
+                    this.querySelector('.svc-icon').style.boxShadow='none';
+                    this.querySelector('.svc-top-line').style.transform='scaleX(0)';
+                    this.querySelector('.svc-link').style.opacity='0';
+                    this.querySelector('.svc-link').style.transform='translateY(6px)';
+                ">
+                    <div class="svc-top-line" style="position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,#0ea5e9,#6366f1); transform:scaleX(0); transform-origin:left; transition:transform 0.35s ease;"></div>
+                    <div class="svc-icon" style="width:56px; height:56px; background:rgba(14,165,233,0.12); border:1px solid rgba(14,165,233,0.2); border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:22px; color:#0ea5e9; margin-bottom:20px; transition:all 0.35s ease; flex-shrink:0;">
                         <i class="fas fa-heartbeat"></i>
                     </div>
-                    <div class="service-title">Cardiology</div>
-                    <div class="service-desc">Diagnosis and treatment of heart conditions including ECG, hypertension management, and cardiac risk assessment.</div>
-                    <a href="#home" class="service-link">Book Appointment <i class="fas fa-arrow-right"></i></a>
+                    <div style="font-size:16px; font-weight:700; color:white; margin-bottom:10px; letter-spacing:-0.2px;">Cardiology</div>
+                    <div style="font-size:13px; color:#64748b; line-height:1.7; margin-bottom:16px;">Diagnosis and treatment of heart conditions — ECG, hypertension management, and cardiac risk assessment.</div>
+                    <a href="#home" class="svc-link" style="display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:600; color:#0ea5e9; text-decoration:none; opacity:0; transform:translateY(6px); transition:all 0.25s ease;">
+                        Book Now <i class="fas fa-arrow-right" style="font-size:10px;"></i>
+                    </a>
                 </div>
             </div>
 
-            <div class="col-md-4 col-6">
-                <div class="service-card">
-                    <div class="service-icon" style="background:rgba(16,185,129,0.12); color:var(--success);">
+            <!-- 2 Pediatrics -->
+            <div class="col-lg-4 col-md-6">
+                <div class="svc-card" style="
+                    background: #1e293b;
+                    border: 1px solid rgba(255,255,255,0.07);
+                    border-radius: 20px; padding: 32px 28px;
+                    height: 100%; position: relative; overflow: hidden;
+                    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                    cursor: default;
+                "
+                onmouseover="
+                    this.style.transform='translateY(-8px)';
+                    this.style.borderColor='rgba(16,185,129,0.35)';
+                    this.style.boxShadow='0 24px 48px rgba(16,185,129,0.12), 0 0 0 1px rgba(16,185,129,0.1)';
+                    this.style.background='linear-gradient(135deg, rgba(16,185,129,0.06), rgba(30,41,59,1))';
+                    this.querySelector('.svc-icon').style.transform='scale(1.12) rotate(-5deg)';
+                    this.querySelector('.svc-icon').style.boxShadow='0 8px 24px rgba(16,185,129,0.35)';
+                    this.querySelector('.svc-top-line').style.transform='scaleX(1)';
+                    this.querySelector('.svc-link').style.opacity='1';
+                    this.querySelector('.svc-link').style.transform='translateY(0)';
+                "
+                onmouseout="
+                    this.style.transform='none';
+                    this.style.borderColor='rgba(255,255,255,0.07)';
+                    this.style.boxShadow='none';
+                    this.style.background='#1e293b';
+                    this.querySelector('.svc-icon').style.transform='none';
+                    this.querySelector('.svc-icon').style.boxShadow='none';
+                    this.querySelector('.svc-top-line').style.transform='scaleX(0)';
+                    this.querySelector('.svc-link').style.opacity='0';
+                    this.querySelector('.svc-link').style.transform='translateY(6px)';
+                ">
+                    <div class="svc-top-line" style="position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,#10b981,#0ea5e9); transform:scaleX(0); transform-origin:left; transition:transform 0.35s ease;"></div>
+                    <div class="svc-icon" style="width:56px; height:56px; background:rgba(16,185,129,0.12); border:1px solid rgba(16,185,129,0.2); border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:22px; color:#10b981; margin-bottom:20px; transition:all 0.35s ease;">
                         <i class="fas fa-baby"></i>
                     </div>
-                    <div class="service-title">Pediatrics</div>
-                    <div class="service-desc">Dedicated child healthcare covering vaccinations, growth monitoring, and treatment of childhood illnesses from newborns to adolescents.</div>
-                    <a href="#home" class="service-link">Book Appointment <i class="fas fa-arrow-right"></i></a>
+                    <div style="font-size:16px; font-weight:700; color:white; margin-bottom:10px; letter-spacing:-0.2px;">Pediatrics</div>
+                    <div style="font-size:13px; color:#64748b; line-height:1.7; margin-bottom:16px;">Dedicated child healthcare — vaccinations, growth monitoring, and treatment from newborns to adolescents.</div>
+                    <a href="#home" class="svc-link" style="display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:600; color:#10b981; text-decoration:none; opacity:0; transform:translateY(6px); transition:all 0.25s ease;">
+                        Book Now <i class="fas fa-arrow-right" style="font-size:10px;"></i>
+                    </a>
                 </div>
             </div>
 
-            <div class="col-md-4 col-6">
-                <div class="service-card">
-                    <div class="service-icon" style="background:rgba(99,102,241,0.12); color:var(--secondary);">
+            <!-- 3 Neurology -->
+            <div class="col-lg-4 col-md-6">
+                <div class="svc-card" style="
+                    background: #1e293b;
+                    border: 1px solid rgba(255,255,255,0.07);
+                    border-radius: 20px; padding: 32px 28px;
+                    height: 100%; position: relative; overflow: hidden;
+                    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                    cursor: default;
+                "
+                onmouseover="
+                    this.style.transform='translateY(-8px)';
+                    this.style.borderColor='rgba(99,102,241,0.35)';
+                    this.style.boxShadow='0 24px 48px rgba(99,102,241,0.12), 0 0 0 1px rgba(99,102,241,0.1)';
+                    this.style.background='linear-gradient(135deg, rgba(99,102,241,0.06), rgba(30,41,59,1))';
+                    this.querySelector('.svc-icon').style.transform='scale(1.12) rotate(-5deg)';
+                    this.querySelector('.svc-icon').style.boxShadow='0 8px 24px rgba(99,102,241,0.35)';
+                    this.querySelector('.svc-top-line').style.transform='scaleX(1)';
+                    this.querySelector('.svc-link').style.opacity='1';
+                    this.querySelector('.svc-link').style.transform='translateY(0)';
+                "
+                onmouseout="
+                    this.style.transform='none';
+                    this.style.borderColor='rgba(255,255,255,0.07)';
+                    this.style.boxShadow='none';
+                    this.style.background='#1e293b';
+                    this.querySelector('.svc-icon').style.transform='none';
+                    this.querySelector('.svc-icon').style.boxShadow='none';
+                    this.querySelector('.svc-top-line').style.transform='scaleX(0)';
+                    this.querySelector('.svc-link').style.opacity='0';
+                    this.querySelector('.svc-link').style.transform='translateY(6px)';
+                ">
+                    <div class="svc-top-line" style="position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,#6366f1,#0ea5e9); transform:scaleX(0); transform-origin:left; transition:transform 0.35s ease;"></div>
+                    <div class="svc-icon" style="width:56px; height:56px; background:rgba(99,102,241,0.12); border:1px solid rgba(99,102,241,0.2); border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:22px; color:#6366f1; margin-bottom:20px; transition:all 0.35s ease;">
                         <i class="fas fa-brain"></i>
                     </div>
-                    <div class="service-title">Neurology</div>
-                    <div class="service-desc">Expert evaluation of neurological disorders including migraines, epilepsy, and conditions affecting the brain and nervous system.</div>
-                    <a href="#home" class="service-link">Book Appointment <i class="fas fa-arrow-right"></i></a>
+                    <div style="font-size:16px; font-weight:700; color:white; margin-bottom:10px; letter-spacing:-0.2px;">Neurology</div>
+                    <div style="font-size:13px; color:#64748b; line-height:1.7; margin-bottom:16px;">Expert evaluation of neurological disorders — migraines, epilepsy, and brain & nervous system conditions.</div>
+                    <a href="#home" class="svc-link" style="display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:600; color:#6366f1; text-decoration:none; opacity:0; transform:translateY(6px); transition:all 0.25s ease;">
+                        Book Now <i class="fas fa-arrow-right" style="font-size:10px;"></i>
+                    </a>
                 </div>
             </div>
 
-            <div class="col-md-4 col-6">
-                <div class="service-card">
-                    <div class="service-icon" style="background:rgba(245,158,11,0.12); color:var(--warning);">
+            <!-- 4 Orthopedics -->
+            <div class="col-lg-4 col-md-6">
+                <div class="svc-card" style="
+                    background: #1e293b;
+                    border: 1px solid rgba(255,255,255,0.07);
+                    border-radius: 20px; padding: 32px 28px;
+                    height: 100%; position: relative; overflow: hidden;
+                    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                    cursor: default;
+                "
+                onmouseover="
+                    this.style.transform='translateY(-8px)';
+                    this.style.borderColor='rgba(245,158,11,0.35)';
+                    this.style.boxShadow='0 24px 48px rgba(245,158,11,0.12), 0 0 0 1px rgba(245,158,11,0.1)';
+                    this.style.background='linear-gradient(135deg, rgba(245,158,11,0.06), rgba(30,41,59,1))';
+                    this.querySelector('.svc-icon').style.transform='scale(1.12) rotate(-5deg)';
+                    this.querySelector('.svc-icon').style.boxShadow='0 8px 24px rgba(245,158,11,0.35)';
+                    this.querySelector('.svc-top-line').style.transform='scaleX(1)';
+                    this.querySelector('.svc-link').style.opacity='1';
+                    this.querySelector('.svc-link').style.transform='translateY(0)';
+                "
+                onmouseout="
+                    this.style.transform='none';
+                    this.style.borderColor='rgba(255,255,255,0.07)';
+                    this.style.boxShadow='none';
+                    this.style.background='#1e293b';
+                    this.querySelector('.svc-icon').style.transform='none';
+                    this.querySelector('.svc-icon').style.boxShadow='none';
+                    this.querySelector('.svc-top-line').style.transform='scaleX(0)';
+                    this.querySelector('.svc-link').style.opacity='0';
+                    this.querySelector('.svc-link').style.transform='translateY(6px)';
+                ">
+                    <div class="svc-top-line" style="position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,#f59e0b,#ef4444); transform:scaleX(0); transform-origin:left; transition:transform 0.35s ease;"></div>
+                    <div class="svc-icon" style="width:56px; height:56px; background:rgba(245,158,11,0.12); border:1px solid rgba(245,158,11,0.2); border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:22px; color:#f59e0b; margin-bottom:20px; transition:all 0.35s ease;">
                         <i class="fas fa-bone"></i>
                     </div>
-                    <div class="service-title">Orthopedics</div>
-                    <div class="service-desc">Comprehensive care for bone, joint, and musculoskeletal conditions including fractures, arthritis, and sports injuries.</div>
-                    <a href="#home" class="service-link">Book Appointment <i class="fas fa-arrow-right"></i></a>
+                    <div style="font-size:16px; font-weight:700; color:white; margin-bottom:10px; letter-spacing:-0.2px;">Orthopedics</div>
+                    <div style="font-size:13px; color:#64748b; line-height:1.7; margin-bottom:16px;">Comprehensive bone, joint & muscle care — fractures, arthritis, and sports injury management.</div>
+                    <a href="#home" class="svc-link" style="display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:600; color:#f59e0b; text-decoration:none; opacity:0; transform:translateY(6px); transition:all 0.25s ease;">
+                        Book Now <i class="fas fa-arrow-right" style="font-size:10px;"></i>
+                    </a>
                 </div>
             </div>
 
-            <div class="col-md-4 col-6">
-                <div class="service-card">
-                    <div class="service-icon" style="background:rgba(239,68,68,0.12); color:#ef4444;">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <div class="service-title">Ophthalmology</div>
-                    <div class="service-desc">Complete eye care including vision testing, treatment of infections, and management of glaucoma and cataract conditions.</div>
-                    <a href="#home" class="service-link">Book Appointment <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-
-            <div class="col-md-4 col-6">
-                <div class="service-card">
-                    <div class="service-icon" style="background:rgba(16,185,129,0.12); color:var(--success);">
-                        <i class="fas fa-stethoscope"></i>
-                    </div>
-                    <div class="service-title">General Medicine</div>
-                    <div class="service-desc">Routine check-ups, chronic disease management, and preventive healthcare consultations for patients of all ages.</div>
-                    <a href="#home" class="service-link">Book Appointment <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-
-            <div class="col-md-4 col-6">
-                <div class="service-card">
-                    <div class="service-icon" style="background:rgba(14,165,233,0.12); color:var(--primary);">
-                        <i class="fas fa-lungs"></i>
-                    </div>
-                    <div class="service-title">Pulmonology</div>
-                    <div class="service-desc">Diagnosis and management of respiratory conditions including asthma, COPD, bronchitis, and sleep-related breathing disorders.</div>
-                    <a href="#home" class="service-link">Book Appointment <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-
-            <div class="col-md-4 col-6">
-                <div class="service-card">
-                    <div class="service-icon" style="background:rgba(99,102,241,0.12); color:var(--secondary);">
+            <!-- 5 Dermatology -->
+            <div class="col-lg-4 col-md-6">
+                <div class="svc-card" style="
+                    background: #1e293b;
+                    border: 1px solid rgba(255,255,255,0.07);
+                    border-radius: 20px; padding: 32px 28px;
+                    height: 100%; position: relative; overflow: hidden;
+                    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                    cursor: default;
+                "
+                onmouseover="
+                    this.style.transform='translateY(-8px)';
+                    this.style.borderColor='rgba(239,68,68,0.35)';
+                    this.style.boxShadow='0 24px 48px rgba(239,68,68,0.12), 0 0 0 1px rgba(239,68,68,0.1)';
+                    this.style.background='linear-gradient(135deg, rgba(239,68,68,0.06), rgba(30,41,59,1))';
+                    this.querySelector('.svc-icon').style.transform='scale(1.12) rotate(-5deg)';
+                    this.querySelector('.svc-icon').style.boxShadow='0 8px 24px rgba(239,68,68,0.35)';
+                    this.querySelector('.svc-top-line').style.transform='scaleX(1)';
+                    this.querySelector('.svc-link').style.opacity='1';
+                    this.querySelector('.svc-link').style.transform='translateY(0)';
+                "
+                onmouseout="
+                    this.style.transform='none';
+                    this.style.borderColor='rgba(255,255,255,0.07)';
+                    this.style.boxShadow='none';
+                    this.style.background='#1e293b';
+                    this.querySelector('.svc-icon').style.transform='none';
+                    this.querySelector('.svc-icon').style.boxShadow='none';
+                    this.querySelector('.svc-top-line').style.transform='scaleX(0)';
+                    this.querySelector('.svc-link').style.opacity='0';
+                    this.querySelector('.svc-link').style.transform='translateY(6px)';
+                ">
+                    <div class="svc-top-line" style="position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,#ef4444,#f59e0b); transform:scaleX(0); transform-origin:left; transition:transform 0.35s ease;"></div>
+                    <div class="svc-icon" style="width:56px; height:56px; background:rgba(239,68,68,0.12); border:1px solid rgba(239,68,68,0.2); border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:22px; color:#ef4444; margin-bottom:20px; transition:all 0.35s ease;">
                         <i class="fas fa-allergies"></i>
                     </div>
-                    <div class="service-title">Dermatology</div>
-                    <div class="service-desc">Treatment of skin, hair, and nail conditions including acne, eczema, psoriasis, fungal infections, and cosmetic skin care.</div>
-                    <a href="#home" class="service-link">Book Appointment <i class="fas fa-arrow-right"></i></a>
+                    <div style="font-size:16px; font-weight:700; color:white; margin-bottom:10px; letter-spacing:-0.2px;">Dermatology</div>
+                    <div style="font-size:13px; color:#64748b; line-height:1.7; margin-bottom:16px;">Skin, hair & nail care — acne, eczema, psoriasis, fungal infections, and cosmetic skin treatments.</div>
+                    <a href="#home" class="svc-link" style="display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:600; color:#ef4444; text-decoration:none; opacity:0; transform:translateY(6px); transition:all 0.25s ease;">
+                        Book Now <i class="fas fa-arrow-right" style="font-size:10px;"></i>
+                    </a>
                 </div>
             </div>
 
-            <div class="col-md-4 col-6">
-                <div class="service-card">
-                    <div class="service-icon" style="background:rgba(245,158,11,0.12); color:var(--warning);">
-                        <i class="fas fa-pills"></i>
+            <!-- 6 General Medicine -->
+            <div class="col-lg-4 col-md-6">
+                <div class="svc-card" style="
+                    background: #1e293b;
+                    border: 1px solid rgba(255,255,255,0.07);
+                    border-radius: 20px; padding: 32px 28px;
+                    height: 100%; position: relative; overflow: hidden;
+                    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                    cursor: default;
+                "
+                onmouseover="
+                    this.style.transform='translateY(-8px)';
+                    this.style.borderColor='rgba(20,184,166,0.35)';
+                    this.style.boxShadow='0 24px 48px rgba(20,184,166,0.12), 0 0 0 1px rgba(20,184,166,0.1)';
+                    this.style.background='linear-gradient(135deg, rgba(20,184,166,0.06), rgba(30,41,59,1))';
+                    this.querySelector('.svc-icon').style.transform='scale(1.12) rotate(-5deg)';
+                    this.querySelector('.svc-icon').style.boxShadow='0 8px 24px rgba(20,184,166,0.35)';
+                    this.querySelector('.svc-top-line').style.transform='scaleX(1)';
+                    this.querySelector('.svc-link').style.opacity='1';
+                    this.querySelector('.svc-link').style.transform='translateY(0)';
+                "
+                onmouseout="
+                    this.style.transform='none';
+                    this.style.borderColor='rgba(255,255,255,0.07)';
+                    this.style.boxShadow='none';
+                    this.style.background='#1e293b';
+                    this.querySelector('.svc-icon').style.transform='none';
+                    this.querySelector('.svc-icon').style.boxShadow='none';
+                    this.querySelector('.svc-top-line').style.transform='scaleX(0)';
+                    this.querySelector('.svc-link').style.opacity='0';
+                    this.querySelector('.svc-link').style.transform='translateY(6px)';
+                ">
+                    <div class="svc-top-line" style="position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,#14b8a6,#0ea5e9); transform:scaleX(0); transform-origin:left; transition:transform 0.35s ease;"></div>
+                    <div class="svc-icon" style="width:56px; height:56px; background:rgba(20,184,166,0.12); border:1px solid rgba(20,184,166,0.2); border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:22px; color:#14b8a6; margin-bottom:20px; transition:all 0.35s ease;">
+                        <i class="fas fa-stethoscope"></i>
                     </div>
-                    <div class="service-title">Diabetology</div>
-                    <div class="service-desc">Specialized diabetes care covering blood sugar monitoring, insulin management, dietary counseling, and complication prevention.</div>
-                    <a href="#home" class="service-link">Book Appointment <i class="fas fa-arrow-right"></i></a>
+                    <div style="font-size:16px; font-weight:700; color:white; margin-bottom:10px; letter-spacing:-0.2px;">General Medicine</div>
+                    <div style="font-size:13px; color:#64748b; line-height:1.7; margin-bottom:16px;">Routine check-ups, chronic disease management, and preventive care consultations for all ages.</div>
+                    <a href="#home" class="svc-link" style="display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:600; color:#14b8a6; text-decoration:none; opacity:0; transform:translateY(6px); transition:all 0.25s ease;">
+                        Book Now <i class="fas fa-arrow-right" style="font-size:10px;"></i>
+                    </a>
                 </div>
             </div>
 
         </div>
 
-        <!-- CTA -->
-        <div style="
-            margin-top:48px;
-            background:linear-gradient(135deg, rgba(14,165,233,0.08), rgba(99,102,241,0.08));
-            border:1px solid rgba(14,165,233,0.15);
-            border-radius:20px;
-            padding:40px;
-            text-align:center;
-        ">
-            <div style="font-size:22px; font-weight:800; color:white; margin-bottom:10px;">
-                Need Medical Assistance?
-            </div>
-            <div style="font-size:14px; color:var(--muted); max-width:460px; margin:0 auto 24px;">
-                Our specialists are available Monday to Saturday, 9:00 AM – 6:00 PM. Book your appointment online in under 60 seconds.
-            </div>
-            <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-                <a href="#home" style="
-                    background:linear-gradient(135deg,var(--primary),var(--secondary));
-                    color:white; padding:12px 28px; border-radius:10px;
-                    text-decoration:none; font-size:14px; font-weight:700;
-                    box-shadow:0 8px 20px rgba(14,165,233,0.25);
-                    transition:all 0.2s; display:inline-block;
-                " onmouseover="this.style.transform='translateY(-2px)'"
-                   onmouseout="this.style.transform='none'">
-                    <i class="fas fa-calendar-plus me-2"></i>Book Appointment Now
-                </a>
-                <a href="#contact" style="
-                    background:rgba(255,255,255,0.05);
-                    border:1px solid rgba(255,255,255,0.1);
-                    color:white; padding:12px 28px; border-radius:10px;
-                    text-decoration:none; font-size:14px; font-weight:600;
-                    transition:all 0.2s; display:inline-block;
-                " onmouseover="this.style.background='rgba(255,255,255,0.09)'"
-                   onmouseout="this.style.background='rgba(255,255,255,0.05)'">
-                    <i class="fas fa-phone me-2"></i>Contact Us
-                </a>
-            </div>
+        <!-- View All Button -->
+        <div style="text-align:center; margin-top:48px;">
+            <a href="#home" style="
+                display:inline-flex; align-items:center; gap:10px;
+                background:rgba(255,255,255,0.04);
+                border:1px solid rgba(255,255,255,0.1);
+                color:white; padding:14px 32px; border-radius:12px;
+                text-decoration:none; font-size:14px; font-weight:600;
+                transition: all 0.25s ease;
+                position: relative; overflow: hidden;
+            "
+            onmouseover="this.style.background='rgba(14,165,233,0.08)'; this.style.borderColor='rgba(14,165,233,0.3)'; this.style.transform='translateY(-2px)'; this.style.color='#0ea5e9'"
+            onmouseout="this.style.background='rgba(255,255,255,0.04)'; this.style.borderColor='rgba(255,255,255,0.1)'; this.style.transform='none'; this.style.color='white'">
+                <i class="fas fa-th-large" style="font-size:13px;"></i>
+                View All Services
+                <i class="fas fa-arrow-right" style="font-size:12px;"></i>
+            </a>
         </div>
 
     </div>
+
+    <div style="position:absolute; bottom:0; left:0; right:0; height:1px; background:linear-gradient(90deg, transparent, rgba(14,165,233,0.3), transparent);"></div>
 </section>
 
-<!-- DOCTORS -->
-<section class="section" id="doctors" style="background: rgba(30,41,59,0.4);">
-    <div class="container">
+        <!-- CTA -->
+<div style="
+    margin-top: 60px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(14,165,233,0.08) 0%, rgba(99,102,241,0.08) 50%, rgba(16,185,129,0.05) 100%);
+    border: 1px solid rgba(14,165,233,0.2);
+    padding: 56px 48px;
+">
+    <!-- Glow blobs -->
+    <div style="position:absolute; top:-60px; left:-60px; width:300px; height:300px; background:radial-gradient(circle, rgba(14,165,233,0.1) 0%, transparent 70%); pointer-events:none;"></div>
+    <div style="position:absolute; bottom:-60px; right:-60px; width:280px; height:280px; background:radial-gradient(circle, rgba(99,102,241,0.1) 0%, transparent 70%); pointer-events:none;"></div>
+    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:400px; height:200px; background:radial-gradient(ellipse, rgba(16,185,129,0.04) 0%, transparent 70%); pointer-events:none;"></div>
 
-        <!-- Header -->
-        <div style="text-align:center; margin-bottom:48px;">
-            <div class="sec-badge">Our Team</div>
-            <div class="sec-title">Meet Our Expert Doctors</div>
-            <div class="sec-sub">Experienced specialists dedicated to providing compassionate and quality healthcare.</div>
+    <!-- Top accent line -->
+    <div style="position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg, transparent, #0ea5e9, #6366f1, transparent);"></div>
+
+    <div style="position:relative; z-index:1;">
+
+        <!-- Badge -->
+        <div style="text-align:center; margin-bottom:20px;">
+            <span style="
+                display:inline-flex; align-items:center; gap:7px;
+                background:rgba(16,185,129,0.1);
+                border:1px solid rgba(16,185,129,0.25);
+                border-radius:20px; padding:6px 16px;
+                font-size:11px; font-weight:700; color:#10b981;
+                text-transform:uppercase; letter-spacing:1.5px;
+            ">
+                <i class="fas fa-circle" style="font-size:6px; animation: pulse 2s ease-in-out infinite;"></i>
+                Available Mon – Sat, 9:00 AM – 6:00 PM
+            </span>
         </div>
 
+        <!-- Heading -->
+        <div style="text-align:center; margin-bottom:16px;">
+            <h2 style="font-size:32px; font-weight:800; color:white; letter-spacing:-0.5px; margin-bottom:10px; line-height:1.2;">
+                Need Medical <span style="background:linear-gradient(135deg,#0ea5e9,#6366f1); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Assistance?</span>
+            </h2>
+            <p style="font-size:14px; color:#64748b; max-width:480px; margin:0 auto; line-height:1.7;">
+                Our specialists are ready to help. Book your appointment online in under 60 seconds — no login required.
+            </p>
+        </div>
+
+        <!-- Trust Indicators -->
+        <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin:28px 0;">
+
+            <div style="
+                display:inline-flex; align-items:center; gap:8px;
+                background:rgba(14,165,233,0.07);
+                border:1px solid rgba(14,165,233,0.15);
+                border-radius:12px; padding:10px 16px;
+                transition: all 0.25s ease; cursor:default;
+            "
+            onmouseover="this.style.background='rgba(14,165,233,0.14)'; this.style.borderColor='rgba(14,165,233,0.35)'; this.style.transform='translateY(-2px)'"
+            onmouseout="this.style.background='rgba(14,165,233,0.07)'; this.style.borderColor='rgba(14,165,233,0.15)'; this.style.transform='none'">
+                <div style="width:30px; height:30px; background:rgba(14,165,233,0.15); border-radius:8px; display:flex; align-items:center; justify-content:center; color:#0ea5e9; font-size:12px; flex-shrink:0;">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div>
+                    <div style="font-size:12px; font-weight:700; color:white;">Quick Booking</div>
+                    <div style="font-size:10px; color:#64748b;">Under 60 seconds</div>
+                </div>
+            </div>
+
+            <div style="
+                display:inline-flex; align-items:center; gap:8px;
+                background:rgba(16,185,129,0.07);
+                border:1px solid rgba(16,185,129,0.15);
+                border-radius:12px; padding:10px 16px;
+                transition: all 0.25s ease; cursor:default;
+            "
+            onmouseover="this.style.background='rgba(16,185,129,0.14)'; this.style.borderColor='rgba(16,185,129,0.35)'; this.style.transform='translateY(-2px)'"
+            onmouseout="this.style.background='rgba(16,185,129,0.07)'; this.style.borderColor='rgba(16,185,129,0.15)'; this.style.transform='none'">
+                <div style="width:30px; height:30px; background:rgba(16,185,129,0.15); border-radius:8px; display:flex; align-items:center; justify-content:center; color:#10b981; font-size:12px; flex-shrink:0;">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <div>
+                    <div style="font-size:12px; font-weight:700; color:white;">Expert Doctors</div>
+                    <div style="font-size:10px; color:#64748b;">13+ Specialists</div>
+                </div>
+            </div>
+
+            <div style="
+                display:inline-flex; align-items:center; gap:8px;
+                background:rgba(99,102,241,0.07);
+                border:1px solid rgba(99,102,241,0.15);
+                border-radius:12px; padding:10px 16px;
+                transition: all 0.25s ease; cursor:default;
+            "
+            onmouseover="this.style.background='rgba(99,102,241,0.14)'; this.style.borderColor='rgba(99,102,241,0.35)'; this.style.transform='translateY(-2px)'"
+            onmouseout="this.style.background='rgba(99,102,241,0.07)'; this.style.borderColor='rgba(99,102,241,0.15)'; this.style.transform='none'">
+                <div style="width:30px; height:30px; background:rgba(99,102,241,0.15); border-radius:8px; display:flex; align-items:center; justify-content:center; color:#6366f1; font-size:12px; flex-shrink:0;">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div>
+                    <div style="font-size:12px; font-weight:700; color:white;">Secure & Private</div>
+                    <div style="font-size:10px; color:#64748b;">Your data is safe</div>
+                </div>
+            </div>
+
+            <div style="
+                display:inline-flex; align-items:center; gap:8px;
+                background:rgba(245,158,11,0.07);
+                border:1px solid rgba(245,158,11,0.15);
+                border-radius:12px; padding:10px 16px;
+                transition: all 0.25s ease; cursor:default;
+            "
+            onmouseover="this.style.background='rgba(245,158,11,0.14)'; this.style.borderColor='rgba(245,158,11,0.35)'; this.style.transform='translateY(-2px)'"
+            onmouseout="this.style.background='rgba(245,158,11,0.07)'; this.style.borderColor='rgba(245,158,11,0.15)'; this.style.transform='none'">
+                <div style="width:30px; height:30px; background:rgba(245,158,11,0.15); border-radius:8px; display:flex; align-items:center; justify-content:center; color:#f59e0b; font-size:12px; flex-shrink:0;">
+                    <i class="fas fa-id-card"></i>
+                </div>
+                <div>
+                    <div style="font-size:12px; font-weight:700; color:white;">No Login Needed</div>
+                    <div style="font-size:10px; color:#64748b;">Book as guest</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CTA Buttons -->
+        <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+
+            <a href="#home" style="
+                display:inline-flex; align-items:center; gap:10px;
+                background:linear-gradient(135deg, #0ea5e9, #6366f1);
+                color:white; padding:14px 32px; border-radius:12px;
+                text-decoration:none; font-size:14px; font-weight:700;
+                box-shadow: 0 8px 24px rgba(14,165,233,0.3);
+                transition: all 0.25s ease;
+                position: relative; overflow: hidden;
+            "
+            onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 16px 40px rgba(14,165,233,0.45)'"
+            onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 24px rgba(14,165,233,0.3)'">
+                <i class="fas fa-calendar-plus"></i>
+                Book Appointment Now
+                <i class="fas fa-arrow-right" style="font-size:12px;"></i>
+            </a>
+
+            <a href="#contact" style="
+                display:inline-flex; align-items:center; gap:10px;
+                background:rgba(255,255,255,0.04);
+                border:1px solid rgba(255,255,255,0.12);
+                color:white; padding:14px 28px; border-radius:12px;
+                text-decoration:none; font-size:14px; font-weight:600;
+                transition: all 0.25s ease;
+            "
+            onmouseover="this.style.background='rgba(255,255,255,0.09)'; this.style.borderColor='rgba(255,255,255,0.25)'; this.style.transform='translateY(-3px)'"
+            onmouseout="this.style.background='rgba(255,255,255,0.04)'; this.style.borderColor='rgba(255,255,255,0.12)'; this.style.transform='none'">
+                <i class="fas fa-phone-alt" style="color:#10b981;"></i>
+                Contact Us
+            </a>
+
+            <a href="tel:+919876543210" style="
+                display:inline-flex; align-items:center; gap:10px;
+                background:rgba(16,185,129,0.08);
+                border:1px solid rgba(16,185,129,0.2);
+                color:#10b981; padding:14px 28px; border-radius:12px;
+                text-decoration:none; font-size:14px; font-weight:600;
+                transition: all 0.25s ease;
+            "
+            onmouseover="this.style.background='rgba(16,185,129,0.15)'; this.style.borderColor='rgba(16,185,129,0.4)'; this.style.transform='translateY(-3px)'"
+            onmouseout="this.style.background='rgba(16,185,129,0.08)'; this.style.borderColor='rgba(16,185,129,0.2)'; this.style.transform='none'">
+                <i class="fas fa-phone-alt"></i>
+                +91 98765 43210
+            </a>
+
+        </div>
+
+    </div>
+</div>
+<!-- DOCTORS -->
+<section class="section" id="doctors" style="position:relative; overflow:hidden; background:linear-gradient(180deg, #0a1628 0%, #0f172a 50%, #0a1628 100%);">
+
+    <div style="position:absolute; top:-100px; left:-100px; width:500px; height:500px; background:radial-gradient(circle, rgba(14,165,233,0.05) 0%, transparent 70%); pointer-events:none;"></div>
+    <div style="position:absolute; bottom:-100px; right:-100px; width:400px; height:400px; background:radial-gradient(circle, rgba(99,102,241,0.05) 0%, transparent 70%); pointer-events:none;"></div>
+    <div style="position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg, transparent, rgba(14,165,233,0.3), transparent);"></div>
+
+    <div class="container" style="position:relative; z-index:1;">
+
+        <!-- Header -->
+        <div style="text-align:center; margin-bottom:56px;">
+            <div style="
+                display:inline-flex; align-items:center; gap:8px;
+                background:rgba(14,165,233,0.08);
+                border:1px solid rgba(14,165,233,0.2);
+                border-radius:20px; padding:6px 16px;
+                font-size:11px; font-weight:700; color:#0ea5e9;
+                text-transform:uppercase; letter-spacing:1.5px;
+                margin-bottom:16px;
+            ">
+                <i class="fas fa-user-md" style="font-size:10px;"></i> Our Team
+            </div>
+            <h2 style="font-size:34px; font-weight:800; color:white; letter-spacing:-0.5px; margin-bottom:12px; line-height:1.2;">
+                Meet Our <span style="background:linear-gradient(135deg,#0ea5e9,#6366f1); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Expert Doctors</span>
+            </h2>
+            <p style="font-size:14px; color:#64748b; max-width:480px; margin:0 auto; line-height:1.7;">
+                Experienced specialists dedicated to providing compassionate, precise, and quality healthcare.
+            </p>
+        </div>
+
+        <!-- Doctor Cards -->
         <div class="row g-4">
 
-            <!-- Doctor 1 -->
-            <div class="col-md-4">
-                <div class="doctor-card">
-                    <div class="doctor-avatar-wrap">
-                        <div class="doctor-avatar" style="background:linear-gradient(135deg,#0ea5e9,#0369a1);">AS</div>
-                        <div class="doctor-status"></div>
+            {% for doctor in doctors %}
+            <div class="col-lg-4 col-md-6">
+                <div style="
+                    background:#1e293b;
+                    border:1px solid rgba(255,255,255,0.07);
+                    border-radius:24px; padding:32px 24px;
+                    text-align:center; height:100%;
+                    position:relative; overflow:hidden;
+                    transition: all 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+                    cursor:default;
+                "
+                onmouseover="
+                    this.style.transform='translateY(-8px)';
+                    this.style.borderColor='rgba(14,165,233,0.3)';
+                    this.style.boxShadow='0 28px 56px rgba(14,165,233,0.12), 0 0 0 1px rgba(14,165,233,0.08)';
+                    this.style.background='linear-gradient(135deg, rgba(14,165,233,0.05), #1e293b)';
+                    this.querySelector('.doc-avatar').style.boxShadow='0 0 0 4px rgba(14,165,233,0.3), 0 16px 40px rgba(14,165,233,0.25)';
+                    this.querySelector('.doc-top').style.transform='scaleX(1)';
+                    this.querySelector('.doc-btn').style.background='linear-gradient(135deg,#0ea5e9,#6366f1)';
+                    this.querySelector('.doc-btn').style.borderColor='transparent';
+                    this.querySelector('.doc-btn').style.color='white';
+                    this.querySelector('.doc-btn').style.transform='translateY(-2px)';
+                    this.querySelector('.doc-btn').style.boxShadow='0 8px 24px rgba(14,165,233,0.35)';
+                "
+                onmouseout="
+                    this.style.transform='none';
+                    this.style.borderColor='rgba(255,255,255,0.07)';
+                    this.style.boxShadow='none';
+                    this.style.background='#1e293b';
+                    this.querySelector('.doc-avatar').style.boxShadow='0 0 0 3px rgba(14,165,233,0.15), 0 8px 24px rgba(0,0,0,0.3)';
+                    this.querySelector('.doc-top').style.transform='scaleX(0)';
+                    this.querySelector('.doc-btn').style.background='rgba(14,165,233,0.08)';
+                    this.querySelector('.doc-btn').style.borderColor='rgba(14,165,233,0.2)';
+                    this.querySelector('.doc-btn').style.color='#0ea5e9';
+                    this.querySelector('.doc-btn').style.transform='none';
+                    this.querySelector('.doc-btn').style.boxShadow='none';
+                ">
+
+                    <!-- Top accent line -->
+                    <div class="doc-top" style="position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,#0ea5e9,#6366f1); transform:scaleX(0); transform-origin:left; transition:transform 0.35s ease;"></div>
+
+                    <!-- Availability Badge -->
+                    <div style="position:absolute; top:16px; right:16px; display:flex; align-items:center; gap:5px; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); border-radius:20px; padding:4px 10px;">
+                        <div style="width:6px; height:6px; background:#10b981; border-radius:50%; animation:pulse 2s ease-in-out infinite;"></div>
+                        <span style="font-size:10px; font-weight:600; color:#10b981;">Available</span>
                     </div>
-                    <div class="doctor-name">Dr. Amit Sharma</div>
-                    <div class="doctor-spec">
-                        <i class="fas fa-heartbeat" style="font-size:11px;"></i> Cardiologist
+
+                    <!-- Avatar -->
+                    <div style="position:relative; display:inline-block; margin-bottom:20px;">
+                        <div class="doc-avatar" style="
+                            width:90px; height:90px;
+                            background:linear-gradient(135deg, #0ea5e9, #6366f1);
+                            border-radius:50%;
+                            display:flex; align-items:center; justify-content:center;
+                            font-size:28px; color:white; font-weight:800;
+                            margin:0 auto;
+                            box-shadow: 0 0 0 3px rgba(14,165,233,0.15), 0 8px 24px rgba(0,0,0,0.3);
+                            transition: all 0.35s ease;
+                        ">
+                            {{ doctor.first_name|first }}{{ doctor.last_name|first }}
+                        </div>
+                        <!-- Online dot -->
+                        <div style="position:absolute; bottom:4px; right:4px; width:16px; height:16px; background:#10b981; border-radius:50%; border:2px solid #1e293b; box-shadow:0 0 8px rgba(16,185,129,0.6);"></div>
                     </div>
-                    <div class="doctor-meta">
-                        <span><i class="fas fa-briefcase-medical"></i> 12 Years Experience</span>
+
+                    <!-- Name -->
+                    <div style="font-size:17px; font-weight:700; color:white; margin-bottom:4px; letter-spacing:-0.2px;">
+                        Dr. {{ doctor.first_name }} {{ doctor.last_name }}
                     </div>
-                    <div class="doctor-divider"></div>
-                    <a href="#home" class="doctor-btn">
-                        <i class="fas fa-calendar-plus"></i> Book Appointment
+
+                    <!-- Specialization tag -->
+                    <div style="margin-bottom:12px;">
+                        <span style="
+                            display:inline-flex; align-items:center; gap:6px;
+                            background:rgba(14,165,233,0.1);
+                            border:1px solid rgba(14,165,233,0.2);
+                            border-radius:20px; padding:4px 12px;
+                            font-size:11px; font-weight:600; color:#0ea5e9;
+                        ">
+                            <i class="fas fa-stethoscope" style="font-size:9px;"></i>
+                            {{ doctor.specialization }}
+                        </span>
+                    </div>
+
+                    <!-- Stars + Experience -->
+                    <div style="display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:18px;">
+                        <div style="display:flex; align-items:center; gap:3px;">
+                            <i class="fas fa-star" style="color:#f59e0b; font-size:11px;"></i>
+                            <i class="fas fa-star" style="color:#f59e0b; font-size:11px;"></i>
+                            <i class="fas fa-star" style="color:#f59e0b; font-size:11px;"></i>
+                            <i class="fas fa-star" style="color:#f59e0b; font-size:11px;"></i>
+                            <i class="fas fa-star" style="color:#f59e0b; font-size:11px;"></i>
+                        </div>
+                        <span style="font-size:11px; color:#64748b;">5.0</span>
+                        <div style="width:1px; height:12px; background:rgba(255,255,255,0.1);"></div>
+                        <span style="font-size:11px; color:#64748b; display:flex; align-items:center; gap:4px;">
+                            <i class="fas fa-briefcase-medical" style="color:#0ea5e9; font-size:10px;"></i>
+                            {{ doctor.experience_years }} yrs exp
+                        </span>
+                    </div>
+
+                    <!-- Divider -->
+                    <div style="height:1px; background:rgba(255,255,255,0.06); margin-bottom:18px;"></div>
+
+                    <!-- CTA Button -->
+                    <a href="#home" class="doc-btn" style="
+                        display:inline-flex; align-items:center; gap:8px;
+                        background:rgba(14,165,233,0.08);
+                        border:1px solid rgba(14,165,233,0.2);
+                        color:#0ea5e9; padding:10px 22px;
+                        border-radius:10px; font-size:13px; font-weight:600;
+                        text-decoration:none;
+                        transition: all 0.3s ease;
+                        width:100%; justify-content:center;
+                    ">
+                        <i class="fas fa-calendar-plus" style="font-size:12px;"></i>
+                        Book Appointment
+                    </a>
+
+                </div>
+            </div>
+            {% empty %}
+            <!-- Static fallback cards if no doctors in DB -->
+            <div class="col-lg-4 col-md-6">
+                <div style="background:#1e293b; border:1px solid rgba(255,255,255,0.07); border-radius:24px; padding:32px 24px; text-align:center; position:relative; overflow:hidden; transition:all 0.35s ease;"
+                onmouseover="this.style.transform='translateY(-8px)'; this.style.borderColor='rgba(14,165,233,0.3)'; this.style.boxShadow='0 28px 56px rgba(14,165,233,0.12)'"
+                onmouseout="this.style.transform='none'; this.style.borderColor='rgba(255,255,255,0.07)'; this.style.boxShadow='none'">
+                    <div style="position:absolute; top:16px; right:16px; display:flex; align-items:center; gap:5px; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); border-radius:20px; padding:4px 10px;">
+                        <div style="width:6px; height:6px; background:#10b981; border-radius:50%;"></div>
+                        <span style="font-size:10px; font-weight:600; color:#10b981;">Available</span>
+                    </div>
+                    <div style="width:90px; height:90px; background:linear-gradient(135deg,#0ea5e9,#0369a1); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:28px; color:white; font-weight:800; margin:0 auto 20px; box-shadow:0 0 0 3px rgba(14,165,233,0.15), 0 8px 24px rgba(0,0,0,0.3);">AS</div>
+                    <div style="font-size:17px; font-weight:700; color:white; margin-bottom:6px;">Dr. Amit Sharma</div>
+                    <span style="display:inline-flex; align-items:center; gap:6px; background:rgba(14,165,233,0.1); border:1px solid rgba(14,165,233,0.2); border-radius:20px; padding:4px 12px; font-size:11px; font-weight:600; color:#0ea5e9; margin-bottom:12px;">
+                        <i class="fas fa-heartbeat" style="font-size:9px;"></i> Cardiologist
+                    </span>
+                    <div style="display:flex; align-items:center; justify-content:center; gap:3px; margin-bottom:18px;">
+                        <i class="fas fa-star" style="color:#f59e0b; font-size:11px;"></i>
+                        <i class="fas fa-star" style="color:#f59e0b; font-size:11px;"></i>
+                        <i class="fas fa-star" style="color:#f59e0b; font-size:11px;"></i>
+                        <i class="fas fa-star" style="color:#f59e0b; font-size:11px;"></i>
+                        <i class="fas fa-star" style="color:#f59e0b; font-size:11px;"></i>
+                        <span style="font-size:11px; color:#64748b; margin-left:6px;">5.0 · 12 yrs</span>
+                    </div>
+                    <div style="height:1px; background:rgba(255,255,255,0.06); margin-bottom:18px;"></div>
+                    <a href="#home" style="display:flex; align-items:center; justify-content:center; gap:8px; background:rgba(14,165,233,0.08); border:1px solid rgba(14,165,233,0.2); color:#0ea5e9; padding:10px 22px; border-radius:10px; font-size:13px; font-weight:600; text-decoration:none; transition:all 0.25s ease;"
+                    onmouseover="this.style.background='linear-gradient(135deg,#0ea5e9,#6366f1)'; this.style.color='white'; this.style.borderColor='transparent'"
+                    onmouseout="this.style.background='rgba(14,165,233,0.08)'; this.style.color='#0ea5e9'; this.style.borderColor='rgba(14,165,233,0.2)'">
+                        <i class="fas fa-calendar-plus" style="font-size:12px;"></i> Book Appointment
                     </a>
                 </div>
             </div>
 
-            <!-- Doctor 2 -->
-            <div class="col-md-4">
-                <div class="doctor-card">
-                    <div class="doctor-avatar-wrap">
-                        <div class="doctor-avatar" style="background:linear-gradient(135deg,#10b981,#047857);">PP</div>
-                        <div class="doctor-status"></div>
+            <div class="col-lg-4 col-md-6">
+                <div style="background:#1e293b; border:1px solid rgba(255,255,255,0.07); border-radius:24px; padding:32px 24px; text-align:center; position:relative; overflow:hidden; transition:all 0.35s ease;"
+                onmouseover="this.style.transform='translateY(-8px)'; this.style.borderColor='rgba(16,185,129,0.3)'; this.style.boxShadow='0 28px 56px rgba(16,185,129,0.12)'"
+                onmouseout="this.style.transform='none'; this.style.borderColor='rgba(255,255,255,0.07)'; this.style.boxShadow='none'">
+                    <div style="position:absolute; top:16px; right:16px; display:flex; align-items:center; gap:5px; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); border-radius:20px; padding:4px 10px;">
+                        <div style="width:6px; height:6px; background:#10b981; border-radius:50%;"></div>
+                        <span style="font-size:10px; font-weight:600; color:#10b981;">Available</span>
                     </div>
-                    <div class="doctor-name">Dr. Priya Patel</div>
-                    <div class="doctor-spec">
-                        <i class="fas fa-allergies" style="font-size:11px;"></i> Dermatologist
+                    <div style="width:90px; height:90px; background:linear-gradient(135deg,#10b981,#047857); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:28px; color:white; font-weight:800; margin:0 auto 20px; box-shadow:0 0 0 3px rgba(16,185,129,0.15), 0 8px 24px rgba(0,0,0,0.3);">PP</div>
+                    <div style="font-size:17px; font-weight:700; color:white; margin-bottom:6px;">Dr. Priya Patel</div>
+                    <span style="display:inline-flex; align-items:center; gap:6px; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); border-radius:20px; padding:4px 12px; font-size:11px; font-weight:600; color:#10b981; margin-bottom:12px;">
+                        <i class="fas fa-allergies" style="font-size:9px;"></i> Dermatologist
+                    </span>
+                    <div style="display:flex; align-items:center; justify-content:center; gap:3px; margin-bottom:18px;">
+                        <i class="fas fa-star" style="color:#f59e0b; font-size:11px;"></i>
+                        <i class="fas fa-star" style="color:#f59e0b; font-size:11px;"></i>
+                        <i class="fas fa-star" style="color:#f59e0b; font-size:11px;"></i>
+                        <i class="fas fa-star" style="color:#f59e0b; font-size:11px;"></i>
+                        <i class="fas fa-star" style="color:#f59e0b; font-size:11px;"></i>
+                        <span style="font-size:11px; color:#64748b; margin-left:6px;">5.0 · 8 yrs</span>
                     </div>
-                    <div class="doctor-meta">
-                        <span><i class="fas fa-briefcase-medical"></i> 8 Years Experience</span>
-                    </div>
-                    <div class="doctor-divider"></div>
-                    <a href="#home" class="doctor-btn">
-                        <i class="fas fa-calendar-plus"></i> Book Appointment
+                    <div style="height:1px; background:rgba(255,255,255,0.06); margin-bottom:18px;"></div>
+                    <a href="#home" style="display:flex; align-items:center; justify-content:center; gap:8px; background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.2); color:#10b981; padding:10px 22px; border-radius:10px; font-size:13px; font-weight:600; text-decoration:none; transition:all 0.25s ease;"
+                    onmouseover="this.style.background='linear-gradient(135deg,#10b981,#0ea5e9)'; this.style.color='white'; this.style.borderColor='transparent'"
+                    onmouseout="this.style.background='rgba(16,185,129,0.08)'; this.style.color='#10b981'; this.style.borderColor='rgba(16,185,129,0.2)'">
+                        <i class="fas fa-calendar-plus" style="font-size:12px;"></i> Book Appointment
                     </a>
                 </div>
             </div>
 
-            <!-- Doctor 3 -->
-            <div class="col-md-4">
-                <div class="doctor-card">
-                    <div class="doctor-avatar-wrap">
-                        <div class="doctor-avatar" style="background:linear-gradient(135deg,#f59e0b,#b45309);">RD</div>
-                        <div class="doctor-status"></div>
+            <div class="col-lg-4 col-md-6">
+                <div style="background:#1e293b; border:1px solid rgba(255,255,255,0.07); border-radius:24px; padding:32px 24px; text-align:center; position:relative; overflow:hidden; transition:all 0.35s ease;"
+                onmouseover="this.style.transform='translateY(-8px)'; this.style.borderColor='rgba(245,158,11,0.3)'; this.style.boxShadow='0 28px 56px rgba(245,158,11,0.12)'"
+                onmouseout="this.style.transform='none'; this.style.borderColor='rgba(255,255,255,0.07)'; this.style.boxShadow='none'">
+                    <div style="position:absolute; top:16px; right:16px; display:flex; align-items:center; gap:5px; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); border-radius:20px; padding:4px 10px;">
+                        <div style="width:6px; height:6px; background:#10b981; border-radius:50%;"></div>
+                        <span style="font-size:10px; font-weight:600; color:#10b981;">Available</span>
                     </div>
-                    <div class="doctor-name">Dr. Rahul Desai</div>
-                    <div class="doctor-spec">
-                        <i class="fas fa-bone" style="font-size:11px;"></i> Orthopedic Specialist
+                    <div style="width:90px; height:90px; background:linear-gradient(135deg,#f59e0b,#b45309); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:28px; color:white; font-weight:800; margin:0 auto 20px; box-shadow:0 0 0 3px rgba(245,158,11,0.15), 0 8px 24px rgba(0,0,0,0.3);">RD</div>
+                    <div style="font-size:17px; font-weight:700; color:white; margin-bottom:6px;">Dr. Rahul Desai</div>
+                    <span style="display:inline-flex; align-items:center; gap:6px; background:rgba(245,158,11,0.1); border:1px solid rgba(245,158,11,0.2); border-radius:20px; padding:4px 12px; font-size:11px; font-weight:600; color:#f59e0b; margin-bottom:12px;">
+                        <i class="fas fa-bone" style="font-size:9px;"></i> Orthopedic
+                    </span>
+                    <div style="display:flex; align-items:center; justify-content:center; gap:3px; margin-bottom:18px;">
+                        <i class="fas fa-star" style="color:#f59e0b; font-size:11px;"></i>
+                        <i class="fas fa-star" style="color:#f59e0b; font-size:11px;"></i>
+                        <i class="fas fa-star" style="color:#f59e0b; font-size:11px;"></i>
+                        <i class="fas fa-star" style="color:#f59e0b; font-size:11px;"></i>
+                        <i class="fas fa-star" style="color:#f59e0b; font-size:11px;"></i>
+                        <span style="font-size:11px; color:#64748b; margin-left:6px;">5.0 · 10 yrs</span>
                     </div>
-                    <div class="doctor-meta">
-                        <span><i class="fas fa-briefcase-medical"></i> 10 Years Experience</span>
-                    </div>
-                    <div class="doctor-divider"></div>
-                    <a href="#home" class="doctor-btn">
-                        <i class="fas fa-calendar-plus"></i> Book Appointment
+                    <div style="height:1px; background:rgba(255,255,255,0.06); margin-bottom:18px;"></div>
+                    <a href="#home" style="display:flex; align-items:center; justify-content:center; gap:8px; background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.2); color:#f59e0b; padding:10px 22px; border-radius:10px; font-size:13px; font-weight:600; text-decoration:none; transition:all 0.25s ease;"
+                    onmouseover="this.style.background='linear-gradient(135deg,#f59e0b,#ef4444)'; this.style.color='white'; this.style.borderColor='transparent'"
+                    onmouseout="this.style.background='rgba(245,158,11,0.08)'; this.style.color='#f59e0b'; this.style.borderColor='rgba(245,158,11,0.2)'">
+                        <i class="fas fa-calendar-plus" style="font-size:12px;"></i> Book Appointment
                     </a>
                 </div>
             </div>
-
-            <!-- Doctor 4 -->
-            <div class="col-md-4">
-                <div class="doctor-card">
-                    <div class="doctor-avatar-wrap">
-                        <div class="doctor-avatar" style="background:linear-gradient(135deg,#6366f1,#4338ca);">SK</div>
-                        <div class="doctor-status"></div>
-                    </div>
-                    <div class="doctor-name">Dr. Sneha Kulkarni</div>
-                    <div class="doctor-spec">
-                        <i class="fas fa-baby" style="font-size:11px;"></i> Pediatrician
-                    </div>
-                    <div class="doctor-meta">
-                        <span><i class="fas fa-briefcase-medical"></i> 9 Years Experience</span>
-                    </div>
-                    <div class="doctor-divider"></div>
-                    <a href="#home" class="doctor-btn">
-                        <i class="fas fa-calendar-plus"></i> Book Appointment
-                    </a>
-                </div>
-            </div>
-
-            <!-- Doctor 5 -->
-            <div class="col-md-4">
-                <div class="doctor-card">
-                    <div class="doctor-avatar-wrap">
-                        <div class="doctor-avatar" style="background:linear-gradient(135deg,#ef4444,#b91c1c);">VM</div>
-                        <div class="doctor-status"></div>
-                    </div>
-                    <div class="doctor-name">Dr. Vijay Mehta</div>
-                    <div class="doctor-spec">
-                        <i class="fas fa-brain" style="font-size:11px;"></i> Neurologist
-                    </div>
-                    <div class="doctor-meta">
-                        <span><i class="fas fa-briefcase-medical"></i> 15 Years Experience</span>
-                    </div>
-                    <div class="doctor-divider"></div>
-                    <a href="#home" class="doctor-btn">
-                        <i class="fas fa-calendar-plus"></i> Book Appointment
-                    </a>
-                </div>
-            </div>
-
-            <!-- Doctor 6 -->
-            <div class="col-md-4">
-                <div class="doctor-card">
-                    <div class="doctor-avatar-wrap">
-                        <div class="doctor-avatar" style="background:linear-gradient(135deg,#0ea5e9,#6366f1);">NJ</div>
-                        <div class="doctor-status"></div>
-                    </div>
-                    <div class="doctor-name">Dr. Neha Joshi</div>
-                    <div class="doctor-spec">
-                        <i class="fas fa-eye" style="font-size:11px;"></i> Ophthalmologist
-                    </div>
-                    <div class="doctor-meta">
-                        <span><i class="fas fa-briefcase-medical"></i> 7 Years Experience</span>
-                    </div>
-                    <div class="doctor-divider"></div>
-                    <a href="#home" class="doctor-btn">
-                        <i class="fas fa-calendar-plus"></i> Book Appointment
-                    </a>
-                </div>
-            </div>
+            {% endfor %}
 
         </div>
 
         <!-- View All CTA -->
-        <div style="text-align:center; margin-top:36px;">
+        <div style="text-align:center; margin-top:48px;">
             <a href="#home" style="
-                display:inline-flex; align-items:center; gap:8px;
-                background:rgba(255,255,255,0.05);
+                display:inline-flex; align-items:center; gap:10px;
+                background:rgba(255,255,255,0.04);
                 border:1px solid rgba(255,255,255,0.1);
-                color:white; padding:12px 28px; border-radius:10px;
+                color:white; padding:14px 32px; border-radius:12px;
                 text-decoration:none; font-size:14px; font-weight:600;
-                transition:all 0.2s;
-            " onmouseover="this.style.background='rgba(14,165,233,0.1)'; this.style.borderColor='rgba(14,165,233,0.3)'"
-               onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.borderColor='rgba(255,255,255,0.1)'">
-                <i class="fas fa-calendar-plus" style="color:var(--primary);"></i>
-                Book an Appointment with Our Team
+                transition:all 0.25s ease;
+            "
+            onmouseover="this.style.background='rgba(14,165,233,0.08)'; this.style.borderColor='rgba(14,165,233,0.3)'; this.style.transform='translateY(-2px)'; this.style.color='#0ea5e9'"
+            onmouseout="this.style.background='rgba(255,255,255,0.04)'; this.style.borderColor='rgba(255,255,255,0.1)'; this.style.transform='none'; this.style.color='white'">
+                <i class="fas fa-calendar-plus" style="color:#0ea5e9;"></i>
+                Book Appointment with Our Team
+                <i class="fas fa-arrow-right" style="font-size:12px;"></i>
             </a>
         </div>
+
+    </div>
+
+    <div style="position:absolute; bottom:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,rgba(99,102,241,0.3),transparent);"></div>
+</section>
+
 
     </div>
 </section>
 
 <!-- CONTACT -->
-<section class="section" id="contact">
-    <div class="container">
+<section class="section" id="contact" style="position:relative; overflow:hidden; background:linear-gradient(180deg,#0f172a 0%,#0a1628 50%,#0f172a 100%);">
+
+    <div style="position:absolute; top:-100px; right:-100px; width:500px; height:500px; background:radial-gradient(circle,rgba(14,165,233,0.05) 0%,transparent 70%); pointer-events:none;"></div>
+    <div style="position:absolute; bottom:-100px; left:-100px; width:400px; height:400px; background:radial-gradient(circle,rgba(16,185,129,0.05) 0%,transparent 70%); pointer-events:none;"></div>
+    <div style="position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,rgba(14,165,233,0.3),transparent);"></div>
+
+    <div class="container" style="position:relative; z-index:1;">
 
         <!-- Header -->
-        <div style="text-align:center; margin-bottom:48px;">
-            <div class="sec-badge">Get In Touch</div>
-            <div class="sec-title">Contact Us</div>
-            <div class="sec-sub">We are here to help. Reach out to us through any of the following channels.</div>
+        <div style="text-align:center; margin-bottom:56px;">
+            <div style="
+                display:inline-flex; align-items:center; gap:8px;
+                background:rgba(16,185,129,0.08);
+                border:1px solid rgba(16,185,129,0.2);
+                border-radius:20px; padding:6px 16px;
+                font-size:11px; font-weight:700; color:#10b981;
+                text-transform:uppercase; letter-spacing:1.5px; margin-bottom:16px;
+            ">
+                <i class="fas fa-headset" style="font-size:10px;"></i> Get In Touch
+            </div>
+            <h2 style="font-size:34px; font-weight:800; color:white; letter-spacing:-0.5px; margin-bottom:12px; line-height:1.2;">
+                Contact <span style="background:linear-gradient(135deg,#10b981,#0ea5e9); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Us</span>
+            </h2>
+            <p style="font-size:14px; color:#64748b; max-width:460px; margin:0 auto; line-height:1.7;">
+                We're here to help. Reach out through any channel — we respond promptly.
+            </p>
         </div>
 
-        <!-- Contact Cards -->
+        <!-- Top 4 Contact Cards -->
         <div class="row g-3 mb-4">
 
             <!-- Address -->
-            <div class="col-md-3 col-6">
-                <div class="contact-card">
-                    <div class="contact-icon" style="background:rgba(14,165,233,0.12); color:var(--primary);">
+            <div class="col-lg-3 col-md-6">
+                <div style="
+                    background:#1e293b;
+                    border:1px solid rgba(255,255,255,0.07);
+                    border-radius:20px; padding:28px 20px;
+                    text-align:center; height:100%;
+                    transition:all 0.3s ease; cursor:default;
+                    position:relative; overflow:hidden;
+                "
+                onmouseover="
+                    this.style.transform='translateY(-6px)';
+                    this.style.borderColor='rgba(14,165,233,0.3)';
+                    this.style.boxShadow='0 20px 40px rgba(14,165,233,0.1)';
+                    this.style.background='linear-gradient(135deg,rgba(14,165,233,0.05),#1e293b)';
+                    this.querySelector('.cicon').style.transform='scale(1.1) rotate(-5deg)';
+                    this.querySelector('.cicon').style.boxShadow='0 8px 20px rgba(14,165,233,0.3)';
+                "
+                onmouseout="
+                    this.style.transform='none';
+                    this.style.borderColor='rgba(255,255,255,0.07)';
+                    this.style.boxShadow='none';
+                    this.style.background='#1e293b';
+                    this.querySelector('.cicon').style.transform='none';
+                    this.querySelector('.cicon').style.boxShadow='none';
+                ">
+                    <div class="cicon" style="width:52px; height:52px; background:rgba(14,165,233,0.12); border:1px solid rgba(14,165,233,0.2); border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:20px; color:#0ea5e9; margin:0 auto 16px; transition:all 0.3s ease;">
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
-                    <div class="contact-label">Our Address</div>
-                    <div class="contact-value">
-                        2nd Floor, Shanti Plaza,<br>
-                        Near Metro Station,<br>
-                        Virar West, Maharashtra<br>
-                        – 401303, India
+                    <div style="font-size:10px; font-weight:700; color:#64748b; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">Our Address</div>
+                    <div style="font-size:13px; color:#e2e8f0; font-weight:500; line-height:1.7;">
+                        2nd Floor, Shanti Plaza,<br>Near Metro Station,<br>Virar West, MH – 401303
+                    </div>
+                    <div style="margin-top:12px;">
+                        <span style="display:inline-flex; align-items:center; gap:5px; font-size:11px; color:#0ea5e9; background:rgba(14,165,233,0.08); border-radius:8px; padding:4px 10px;">
+                            <i class="fas fa-directions" style="font-size:10px;"></i> Get Directions
+                        </span>
                     </div>
                 </div>
             </div>
 
             <!-- Phone -->
-            <div class="col-md-3 col-6">
-                <div class="contact-card">
-                    <div class="contact-icon" style="background:rgba(16,185,129,0.12); color:var(--success);">
+            <div class="col-lg-3 col-md-6">
+                <a href="tel:+919876543210" style="text-decoration:none; display:block; height:100%;">
+                <div style="
+                    background:#1e293b;
+                    border:1px solid rgba(255,255,255,0.07);
+                    border-radius:20px; padding:28px 20px;
+                    text-align:center; height:100%;
+                    transition:all 0.3s ease; cursor:pointer;
+                    position:relative; overflow:hidden;
+                "
+                onmouseover="
+                    this.style.transform='translateY(-6px)';
+                    this.style.borderColor='rgba(16,185,129,0.3)';
+                    this.style.boxShadow='0 20px 40px rgba(16,185,129,0.1)';
+                    this.style.background='linear-gradient(135deg,rgba(16,185,129,0.05),#1e293b)';
+                    this.querySelector('.cicon').style.transform='scale(1.1) rotate(-5deg)';
+                    this.querySelector('.cicon').style.boxShadow='0 8px 20px rgba(16,185,129,0.3)';
+                "
+                onmouseout="
+                    this.style.transform='none';
+                    this.style.borderColor='rgba(255,255,255,0.07)';
+                    this.style.boxShadow='none';
+                    this.style.background='#1e293b';
+                    this.querySelector('.cicon').style.transform='none';
+                    this.querySelector('.cicon').style.boxShadow='none';
+                ">
+                    <div class="cicon" style="width:52px; height:52px; background:rgba(16,185,129,0.12); border:1px solid rgba(16,185,129,0.2); border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:20px; color:#10b981; margin:0 auto 16px; transition:all 0.3s ease;">
                         <i class="fas fa-phone-alt"></i>
                     </div>
-                    <div class="contact-label">Phone Number</div>
-                    <div class="contact-value">
-                        <a href="tel:+919876543210" style="color:white; text-decoration:none;">
-                            +91 98765 43210
-                        </a>
+                    <div style="font-size:10px; font-weight:700; color:#64748b; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">Call Us</div>
+                    <div style="font-size:15px; color:#e2e8f0; font-weight:700; margin-bottom:4px;">+91 98765 43210</div>
+                    <div style="font-size:11px; color:#64748b; line-height:1.6;">Mon – Sat, 9AM – 6PM</div>
+                    <div style="margin-top:12px;">
+                        <span style="display:inline-flex; align-items:center; gap:5px; font-size:11px; color:#10b981; background:rgba(16,185,129,0.08); border-radius:8px; padding:4px 10px;">
+                            <i class="fas fa-phone" style="font-size:10px;"></i> Tap to Call
+                        </span>
                     </div>
-                    <div style="font-size:11px; color:#64748b; margin-top:6px;">Mon – Sat, 9AM – 6PM</div>
                 </div>
+                </a>
             </div>
 
             <!-- Email -->
-            <div class="col-md-3 col-6">
-                <div class="contact-card">
-                    <div class="contact-icon" style="background:rgba(99,102,241,0.12); color:var(--secondary);">
+            <div class="col-lg-3 col-md-6">
+                <a href="mailto:info@aarogyamclinic.com" style="text-decoration:none; display:block; height:100%;">
+                <div style="
+                    background:#1e293b;
+                    border:1px solid rgba(255,255,255,0.07);
+                    border-radius:20px; padding:28px 20px;
+                    text-align:center; height:100%;
+                    transition:all 0.3s ease; cursor:pointer;
+                "
+                onmouseover="
+                    this.style.transform='translateY(-6px)';
+                    this.style.borderColor='rgba(99,102,241,0.3)';
+                    this.style.boxShadow='0 20px 40px rgba(99,102,241,0.1)';
+                    this.style.background='linear-gradient(135deg,rgba(99,102,241,0.05),#1e293b)';
+                    this.querySelector('.cicon').style.transform='scale(1.1) rotate(-5deg)';
+                    this.querySelector('.cicon').style.boxShadow='0 8px 20px rgba(99,102,241,0.3)';
+                "
+                onmouseout="
+                    this.style.transform='none';
+                    this.style.borderColor='rgba(255,255,255,0.07)';
+                    this.style.boxShadow='none';
+                    this.style.background='#1e293b';
+                    this.querySelector('.cicon').style.transform='none';
+                    this.querySelector('.cicon').style.boxShadow='none';
+                ">
+                    <div class="cicon" style="width:52px; height:52px; background:rgba(99,102,241,0.12); border:1px solid rgba(99,102,241,0.2); border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:20px; color:#6366f1; margin:0 auto 16px; transition:all 0.3s ease;">
                         <i class="fas fa-envelope"></i>
                     </div>
-                    <div class="contact-label">Email Address</div>
-                    <div class="contact-value">
-                        <a href="mailto:info@aarogyamclinic.com" style="color:white; text-decoration:none; font-size:13px;">
-                            info@aarogyamclinic.com
-                        </a>
+                    <div style="font-size:10px; font-weight:700; color:#64748b; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">Email Us</div>
+                    <div style="font-size:13px; color:#e2e8f0; font-weight:600; margin-bottom:4px; word-break:break-all;">info@aarogyamclinic.com</div>
+                    <div style="font-size:11px; color:#64748b;">Reply within 24 hours</div>
+                    <div style="margin-top:12px;">
+                        <span style="display:inline-flex; align-items:center; gap:5px; font-size:11px; color:#6366f1; background:rgba(99,102,241,0.08); border-radius:8px; padding:4px 10px;">
+                            <i class="fas fa-paper-plane" style="font-size:10px;"></i> Send Email
+                        </span>
                     </div>
-                    <div style="font-size:11px; color:#64748b; margin-top:6px;">We reply within 24 hours</div>
                 </div>
+                </a>
             </div>
 
             <!-- Timing -->
-            <div class="col-md-3 col-6">
-                <div class="contact-card">
-                    <div class="contact-icon" style="background:rgba(245,158,11,0.12); color:var(--warning);">
+            <div class="col-lg-3 col-md-6">
+                <div style="
+                    background:#1e293b;
+                    border:1px solid rgba(255,255,255,0.07);
+                    border-radius:20px; padding:28px 20px;
+                    text-align:center; height:100%;
+                    transition:all 0.3s ease; cursor:default;
+                "
+                onmouseover="
+                    this.style.transform='translateY(-6px)';
+                    this.style.borderColor='rgba(245,158,11,0.3)';
+                    this.style.boxShadow='0 20px 40px rgba(245,158,11,0.1)';
+                    this.style.background='linear-gradient(135deg,rgba(245,158,11,0.05),#1e293b)';
+                    this.querySelector('.cicon').style.transform='scale(1.1) rotate(-5deg)';
+                    this.querySelector('.cicon').style.boxShadow='0 8px 20px rgba(245,158,11,0.3)';
+                "
+                onmouseout="
+                    this.style.transform='none';
+                    this.style.borderColor='rgba(255,255,255,0.07)';
+                    this.style.boxShadow='none';
+                    this.style.background='#1e293b';
+                    this.querySelector('.cicon').style.transform='none';
+                    this.querySelector('.cicon').style.boxShadow='none';
+                ">
+                    <div class="cicon" style="width:52px; height:52px; background:rgba(245,158,11,0.12); border:1px solid rgba(245,158,11,0.2); border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:20px; color:#f59e0b; margin:0 auto 16px; transition:all 0.3s ease;">
                         <i class="fas fa-clock"></i>
                     </div>
-                    <div class="contact-label">Clinic Timing</div>
-                    <div class="contact-value">
-                        <div style="margin-bottom:4px;">
-                            <span style="color:var(--success); font-size:11px; font-weight:600;">
-                                <i class="fas fa-circle" style="font-size:7px;"></i> Mon – Sat
-                            </span><br>
-                            9:00 AM – 6:00 PM
+                    <div style="font-size:10px; font-weight:700; color:#64748b; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">Clinic Hours</div>
+                    <div style="font-size:13px; line-height:1.8;">
+                        <div style="display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:4px;">
+                            <i class="fas fa-circle" style="font-size:6px; color:#10b981;"></i>
+                            <span style="color:#e2e8f0; font-weight:600;">Mon – Sat</span>
+                            <span style="color:#64748b;">9AM – 6PM</span>
                         </div>
-                        <div>
-                            <span style="color:#ef4444; font-size:11px; font-weight:600;">
-                                <i class="fas fa-circle" style="font-size:7px;"></i> Sunday
-                            </span><br>
-                            Closed
+                        <div style="display:flex; align-items:center; justify-content:center; gap:8px;">
+                            <i class="fas fa-circle" style="font-size:6px; color:#ef4444;"></i>
+                            <span style="color:#e2e8f0; font-weight:600;">Sunday</span>
+                            <span style="color:#ef4444;">Closed</span>
                         </div>
                     </div>
                 </div>
@@ -1373,191 +2164,195 @@ body { padding-top: 72px; }
 
         </div>
 
-        <!-- Map + Quick Contact Row -->
+        <!-- Map + Quick Actions Row -->
         <div class="row g-3">
 
             <!-- Map -->
             <div class="col-lg-8">
                 <div style="
-                    background:var(--dark2);
+                    background:#1e293b;
                     border:1px solid rgba(255,255,255,0.07);
-                    border-radius:16px;
-                    overflow:hidden;
-                    height:320px;
+                    border-radius:20px;
+                    overflow:hidden; height:360px;
                     position:relative;
-                ">
-                    <!-- Demo Map Placeholder -->
-                    <div style="
-                        width:100%; height:100%;
-                        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-                        display:flex; flex-direction:column;
-                        align-items:center; justify-content:center;
-                        position:relative; overflow:hidden;
-                    ">
-                        <!-- Grid lines -->
-                        <div style="
-                            position:absolute; inset:0;
-                            background-image:
-                                linear-gradient(rgba(14,165,233,0.06) 1px, transparent 1px),
-                                linear-gradient(90deg, rgba(14,165,233,0.06) 1px, transparent 1px);
-                            background-size: 40px 40px;
-                        "></div>
+                    transition:border-color 0.3s ease;
+                "
+                onmouseover="this.style.borderColor='rgba(14,165,233,0.25)'"
+                onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">
+
+                    <!-- Map Visual -->
+                    <div style="width:100%; height:100%; background:linear-gradient(135deg,#0a1628 0%,#1e293b 50%,#0a1628 100%); position:relative; overflow:hidden;">
+
+                        <!-- Grid -->
+                        <div style="position:absolute; inset:0; background-image:linear-gradient(rgba(14,165,233,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(14,165,233,0.05) 1px,transparent 1px); background-size:48px 48px;"></div>
 
                         <!-- Roads -->
-                        <div style="position:absolute; inset:0;">
-                            <div style="position:absolute; top:50%; left:0; right:0; height:2px; background:rgba(14,165,233,0.15); transform:translateY(-50%);"></div>
-                            <div style="position:absolute; left:50%; top:0; bottom:0; width:2px; background:rgba(14,165,233,0.15); transform:translateX(-50%);"></div>
-                            <div style="position:absolute; top:30%; left:0; right:0; height:1px; background:rgba(255,255,255,0.05);"></div>
-                            <div style="position:absolute; top:70%; left:0; right:0; height:1px; background:rgba(255,255,255,0.05);"></div>
-                            <div style="position:absolute; left:30%; top:0; bottom:0; width:1px; background:rgba(255,255,255,0.05);"></div>
-                            <div style="position:absolute; left:70%; top:0; bottom:0; width:1px; background:rgba(255,255,255,0.05);"></div>
-                        </div>
+                        <div style="position:absolute; top:50%; left:0; right:0; height:3px; background:rgba(14,165,233,0.12); transform:translateY(-50%);"></div>
+                        <div style="position:absolute; left:50%; top:0; bottom:0; width:3px; background:rgba(14,165,233,0.12); transform:translateX(-50%);"></div>
+                        <div style="position:absolute; top:35%; left:0; right:0; height:1px; background:rgba(255,255,255,0.04);"></div>
+                        <div style="position:absolute; top:65%; left:0; right:0; height:1px; background:rgba(255,255,255,0.04);"></div>
+                        <div style="position:absolute; left:30%; top:0; bottom:0; width:1px; background:rgba(255,255,255,0.04);"></div>
+                        <div style="position:absolute; left:70%; top:0; bottom:0; width:1px; background:rgba(255,255,255,0.04);"></div>
 
-                        <!-- Pin -->
-                        <div style="position:relative; z-index:2; text-align:center;">
+                        <!-- Center Pin -->
+                        <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-60%); text-align:center; z-index:2;">
+                            <!-- Pulse rings -->
+                            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:100px; height:100px; border:1px solid rgba(14,165,233,0.2); border-radius:50%; animation:mapRing 2s ease-out infinite;"></div>
+                            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:140px; height:140px; border:1px solid rgba(14,165,233,0.1); border-radius:50%; animation:mapRing 2s ease-out infinite 0.6s;"></div>
+
+                            <!-- Pin -->
                             <div style="
-                                width:52px; height:52px;
-                                background:linear-gradient(135deg,var(--primary),var(--secondary));
+                                width:56px; height:56px;
+                                background:linear-gradient(135deg,#0ea5e9,#6366f1);
                                 border-radius:50% 50% 50% 0;
                                 transform:rotate(-45deg);
-                                margin:0 auto 4px;
-                                box-shadow:0 8px 24px rgba(14,165,233,0.5);
-                                animation: pinPulse 2s ease-in-out infinite;
+                                margin:0 auto 6px;
+                                box-shadow:0 8px 28px rgba(14,165,233,0.5);
+                                animation:pinPulse 2s ease-in-out infinite;
                             ">
-                                <div style="
-                                    width:100%; height:100%;
-                                    display:flex; align-items:center; justify-content:center;
-                                    transform:rotate(45deg);
-                                    font-size:20px; color:white;
-                                "><i class="fas fa-hospital"></i></div>
+                                <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; transform:rotate(45deg); font-size:22px; color:white;">
+                                    <i class="fas fa-hospital"></i>
+                                </div>
                             </div>
+
+                            <!-- Label -->
                             <div style="
-                                background:rgba(30,41,59,0.95);
+                                background:rgba(8,20,36,0.95);
                                 border:1px solid rgba(14,165,233,0.3);
-                                border-radius:10px; padding:10px 16px;
-                                margin-top:12px;
+                                border-radius:12px; padding:10px 16px;
+                                margin-top:14px; backdrop-filter:blur(12px);
+                                box-shadow:0 8px 24px rgba(0,0,0,0.4);
                             ">
-                                <div style="font-size:13px; font-weight:700; color:white; margin-bottom:2px;">
-                                    Aarogyam Multi-Speciality Clinic
-                                </div>
-                                <div style="font-size:11px; color:#94a3b8;">
-                                    2nd Floor, Shanti Plaza, Virar West
-                                </div>
+                                <div style="font-size:13px; font-weight:700; color:white; margin-bottom:2px;">Aarogyam Multi-Speciality Clinic</div>
+                                <div style="font-size:11px; color:#64748b;">2nd Floor, Shanti Plaza, Virar West</div>
                             </div>
                         </div>
 
-                        <!-- Pulse rings -->
-                        <div style="
-                            position:absolute;
-                            width:80px; height:80px;
-                            border:2px solid rgba(14,165,233,0.2);
-                            border-radius:50%;
-                            top:50%; left:50%;
-                            transform:translate(-50%, -70%);
-                            animation:mapRing 2s ease-out infinite;
-                        "></div>
-                        <div style="
-                            position:absolute;
-                            width:120px; height:120px;
-                            border:1px solid rgba(14,165,233,0.1);
-                            border-radius:50%;
-                            top:50%; left:50%;
-                            transform:translate(-50%, -58%);
-                            animation:mapRing 2s ease-out infinite 0.5s;
-                        "></div>
+                        <!-- Area labels -->
+                        <div style="position:absolute; top:18%; left:12%; font-size:10px; color:rgba(255,255,255,0.12); font-weight:600; text-transform:uppercase; letter-spacing:1px;">Virar East</div>
+                        <div style="position:absolute; top:18%; right:12%; font-size:10px; color:rgba(255,255,255,0.12); font-weight:600; text-transform:uppercase; letter-spacing:1px;">Nala Sopara</div>
+                        <div style="position:absolute; bottom:18%; left:12%; font-size:10px; color:rgba(255,255,255,0.12); font-weight:600; text-transform:uppercase; letter-spacing:1px;">Vasai</div>
+                        <div style="position:absolute; bottom:18%; right:12%; font-size:10px; color:rgba(255,255,255,0.12); font-weight:600; text-transform:uppercase; letter-spacing:1px;">Nalasopara W</div>
                     </div>
 
-                    <!-- Map Label -->
-                    <div style="
-                        position:absolute; bottom:12px; left:12px;
-                        background:rgba(15,23,42,0.9);
-                        border:1px solid rgba(255,255,255,0.07);
-                        border-radius:8px; padding:6px 12px;
-                        font-size:11px; color:#64748b;
-                        display:flex; align-items:center; gap:6px;
-                    ">
-                        <i class="fas fa-map" style="color:var(--primary);"></i>
-                        Virar West, Maharashtra – 401303
+                    <!-- Map badge -->
+                    <div style="position:absolute; bottom:14px; left:14px; background:rgba(8,20,36,0.95); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:8px 14px; display:flex; align-items:center; gap:8px; backdrop-filter:blur(10px);">
+                        <i class="fas fa-map-pin" style="color:#0ea5e9; font-size:12px;"></i>
+                        <span style="font-size:11px; color:#94a3b8;">Virar West, Maharashtra – 401303</span>
+                    </div>
+
+                    <!-- Top label -->
+                    <div style="position:absolute; top:14px; left:14px; background:rgba(14,165,233,0.1); border:1px solid rgba(14,165,233,0.2); border-radius:8px; padding:6px 12px; display:flex; align-items:center; gap:6px;">
+                        <div style="width:7px; height:7px; background:#10b981; border-radius:50%; animation:pulse 2s ease-in-out infinite;"></div>
+                        <span style="font-size:11px; color:#0ea5e9; font-weight:600;">Clinic Location</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Quick Contact -->
+            <!-- Quick Actions Panel -->
             <div class="col-lg-4">
                 <div style="
-                    background:var(--dark2);
+                    background:#1e293b;
                     border:1px solid rgba(255,255,255,0.07);
-                    border-radius:16px;
-                    padding:28px;
-                    height:320px;
-                    display:flex;
-                    flex-direction:column;
+                    border-radius:20px; padding:28px;
+                    height:360px; display:flex; flex-direction:column;
                     justify-content:space-between;
                 ">
                     <div>
-                        <div style="font-size:15px; font-weight:700; color:white; margin-bottom:6px;">
-                            Quick Contact
-                        </div>
-                        <div style="font-size:13px; color:#64748b; margin-bottom:24px;">
-                            Have a question? Reach out directly.
-                        </div>
+                        <div style="font-size:15px; font-weight:700; color:white; margin-bottom:4px;">Quick Contact</div>
+                        <div style="font-size:12px; color:#64748b; margin-bottom:24px;">Reach us instantly through your preferred channel.</div>
 
-                        <div style="display:flex; flex-direction:column; gap:14px;">
+                        <div style="display:flex; flex-direction:column; gap:10px;">
+
+                            <!-- Call -->
                             <a href="tel:+919876543210" style="
                                 display:flex; align-items:center; gap:12px;
-                                background:rgba(16,185,129,0.08);
+                                background:rgba(16,185,129,0.07);
                                 border:1px solid rgba(16,185,129,0.15);
-                                border-radius:10px; padding:12px 16px;
-                                text-decoration:none; transition:all 0.2s;
-                            " onmouseover="this.style.background='rgba(16,185,129,0.15)'"
-                               onmouseout="this.style.background='rgba(16,185,129,0.08)'">
-                                <div style="width:36px; height:36px; background:rgba(16,185,129,0.15); border-radius:8px; display:flex; align-items:center; justify-content:center; color:var(--success); flex-shrink:0;">
+                                border-radius:12px; padding:12px 16px;
+                                text-decoration:none; transition:all 0.25s ease;
+                            "
+                            onmouseover="this.style.background='rgba(16,185,129,0.14)'; this.style.borderColor='rgba(16,185,129,0.35)'; this.style.transform='translateX(4px)'"
+                            onmouseout="this.style.background='rgba(16,185,129,0.07)'; this.style.borderColor='rgba(16,185,129,0.15)'; this.style.transform='none'">
+                                <div style="width:38px; height:38px; background:rgba(16,185,129,0.15); border-radius:10px; display:flex; align-items:center; justify-content:center; color:#10b981; font-size:14px; flex-shrink:0;">
                                     <i class="fas fa-phone-alt"></i>
                                 </div>
                                 <div>
-                                    <div style="font-size:10px; color:#64748b; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Call Us</div>
-                                    <div style="font-size:14px; color:white; font-weight:600;">+91 98765 43210</div>
+                                    <div style="font-size:10px; color:#64748b; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Call Now</div>
+                                    <div style="font-size:14px; color:white; font-weight:700;">+91 98765 43210</div>
                                 </div>
+                                <i class="fas fa-arrow-right" style="color:#10b981; font-size:11px; margin-left:auto;"></i>
                             </a>
 
+                            <!-- WhatsApp -->
+                            <a href="https://wa.me/919876543210" target="_blank" style="
+                                display:flex; align-items:center; gap:12px;
+                                background:rgba(37,211,102,0.07);
+                                border:1px solid rgba(37,211,102,0.15);
+                                border-radius:12px; padding:12px 16px;
+                                text-decoration:none; transition:all 0.25s ease;
+                            "
+                            onmouseover="this.style.background='rgba(37,211,102,0.14)'; this.style.borderColor='rgba(37,211,102,0.35)'; this.style.transform='translateX(4px)'"
+                            onmouseout="this.style.background='rgba(37,211,102,0.07)'; this.style.borderColor='rgba(37,211,102,0.15)'; this.style.transform='none'">
+                                <div style="width:38px; height:38px; background:rgba(37,211,102,0.15); border-radius:10px; display:flex; align-items:center; justify-content:center; color:#25d366; font-size:16px; flex-shrink:0;">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <div style="font-size:10px; color:#64748b; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">WhatsApp</div>
+                                    <div style="font-size:14px; color:white; font-weight:700;">Chat with Us</div>
+                                </div>
+                                <i class="fas fa-arrow-right" style="color:#25d366; font-size:11px; margin-left:auto;"></i>
+                            </a>
+
+                            <!-- Email -->
                             <a href="mailto:info@aarogyamclinic.com" style="
                                 display:flex; align-items:center; gap:12px;
-                                background:rgba(99,102,241,0.08);
+                                background:rgba(99,102,241,0.07);
                                 border:1px solid rgba(99,102,241,0.15);
-                                border-radius:10px; padding:12px 16px;
-                                text-decoration:none; transition:all 0.2s;
-                            " onmouseover="this.style.background='rgba(99,102,241,0.15)'"
-                               onmouseout="this.style.background='rgba(99,102,241,0.08)'">
-                                <div style="width:36px; height:36px; background:rgba(99,102,241,0.15); border-radius:8px; display:flex; align-items:center; justify-content:center; color:var(--secondary); flex-shrink:0;">
+                                border-radius:12px; padding:12px 16px;
+                                text-decoration:none; transition:all 0.25s ease;
+                            "
+                            onmouseover="this.style.background='rgba(99,102,241,0.14)'; this.style.borderColor='rgba(99,102,241,0.35)'; this.style.transform='translateX(4px)'"
+                            onmouseout="this.style.background='rgba(99,102,241,0.07)'; this.style.borderColor='rgba(99,102,241,0.15)'; this.style.transform='none'">
+                                <div style="width:38px; height:38px; background:rgba(99,102,241,0.15); border-radius:10px; display:flex; align-items:center; justify-content:center; color:#6366f1; font-size:14px; flex-shrink:0;">
                                     <i class="fas fa-envelope"></i>
                                 </div>
                                 <div>
-                                    <div style="font-size:10px; color:#64748b; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Email Us</div>
+                                    <div style="font-size:10px; color:#64748b; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Email</div>
                                     <div style="font-size:13px; color:white; font-weight:600;">info@aarogyamclinic.com</div>
                                 </div>
+                                <i class="fas fa-arrow-right" style="color:#6366f1; font-size:11px; margin-left:auto;"></i>
                             </a>
+
                         </div>
                     </div>
 
+                    <!-- Book Button -->
                     <a href="#home" style="
-                        display:flex; align-items:center; justify-content:center; gap:8px;
-                        background:linear-gradient(135deg,var(--primary),var(--secondary));
-                        color:white; padding:12px; border-radius:10px;
-                        text-decoration:none; font-size:13px; font-weight:700;
-                        box-shadow:0 8px 20px rgba(14,165,233,0.2);
-                        transition:all 0.2s;
-                    " onmouseover="this.style.transform='translateY(-2px)'"
-                       onmouseout="this.style.transform='none'">
+                        display:flex; align-items:center; justify-content:center; gap:9px;
+                        background:linear-gradient(135deg,#0ea5e9,#6366f1);
+                        color:white; padding:13px;
+                        border-radius:12px; text-decoration:none;
+                        font-size:14px; font-weight:700;
+                        box-shadow:0 8px 24px rgba(14,165,233,0.25);
+                        transition:all 0.25s ease;
+                    "
+                    onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 14px 32px rgba(14,165,233,0.4)'"
+                    onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 24px rgba(14,165,233,0.25)'">
                         <i class="fas fa-calendar-plus"></i>
                         Book Appointment
+                        <i class="fas fa-arrow-right" style="font-size:12px;"></i>
                     </a>
                 </div>
             </div>
 
         </div>
     </div>
+
+    <div style="position:absolute; bottom:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,rgba(16,185,129,0.3),transparent);"></div>
 </section>
 
+        
 <!-- FOOTER -->
 <footer class="footer">
 

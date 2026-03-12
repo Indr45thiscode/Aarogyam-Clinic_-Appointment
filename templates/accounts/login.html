@@ -3,104 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Aarogyam Clinic</title>
+    <title>Login – Aarogyam Clinic</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <style>
+        :root {
+            --bg:      #050c15;
+            --surface: rgba(8, 20, 36, 0.85);
+            --border:  rgba(14, 165, 233, 0.18);
+            --primary: #0ea5e9;
+            --accent:  #6366f1;
+            --success: #10b981;
+            --danger:  #ef4444;
+            --text:    #e2e8f0;
+            --muted:   #64748b;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: #0f172a;
+            font-family: 'Sora', sans-serif;
+            background: var(--bg);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
             overflow: hidden;
+            position: relative;
         }
-        .blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.15; animation: float 8s ease-in-out infinite; }
-        .blob-1 { width: 500px; height: 500px; background: #0ea5e9; top: -150px; left: -150px; }
-        .blob-2 { width: 400px; height: 400px; background: #6366f1; bottom: -100px; right: -100px; animation-delay: 3s; }
-        .blob-3 { width: 300px; height: 300px; background: #10b981; top: 50%; left: 50%; transform: translate(-50%, -50%); animation-delay: 5s; }
-        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
-        body::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
+
+        .grid-bg {
+            position: fixed; inset: 0;
+            background-image:
+                linear-gradient(rgba(14,165,233,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(14,165,233,0.04) 1px, transparent 1px);
+            background-size: 48px 48px;
+            pointer-events: none; z-index: 0;
         }
-        .login-wrapper { position: relative; z-index: 10; width: 100%; max-width: 460px; padding: 20px; }
+
+        .glow { position: fixed; border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 0; }
+        .glow-1 { width:600px; height:600px; background:radial-gradient(circle,rgba(14,165,233,0.12),transparent 70%); top:-200px; left:-200px; animation:drift1 12s ease-in-out infinite; }
+        .glow-2 { width:500px; height:500px; background:radial-gradient(circle,rgba(99,102,241,0.10),transparent 70%); bottom:-150px; right:-150px; animation:drift2 15s ease-in-out infinite; }
+        .glow-3 { width:300px; height:300px; background:radial-gradient(circle,rgba(16,185,129,0.07),transparent 70%); top:50%; left:55%; animation:drift3 10s ease-in-out infinite; }
+
+        @keyframes drift1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(40px,30px)} }
+        @keyframes drift2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-30px,-40px)} }
+        @keyframes drift3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-20px,20px)} }
+
+        .particles { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+        .particle {
+            position: absolute; width:2px; height:2px;
+            background: var(--primary); border-radius: 50%;
+            opacity: 0; animation: floatUp linear infinite;
+        }
+        @keyframes floatUp {
+            0%   { opacity:0; transform:translateY(0) scale(0); }
+            10%  { opacity:0.6; }
+            90%  { opacity:0.2; }
+            100% { opacity:0; transform:translateY(-100vh) scale(1.5); }
+        }
+
+        .login-wrapper {
+            position: relative; z-index: 10;
+            width: 100%; max-width: 460px; padding: 24px;
+            animation: slideUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
+        }
+        @keyframes slideUp {
+            from { opacity:0; transform:translateY(32px); }
+            to   { opacity:1; transform:translateY(0); }
+        }
+
         .login-card {
-            background: rgba(30,41,59,0.85);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 28px;
-            padding: 48px 44px;
-            box-shadow: 0 32px 64px rgba(0,0,0,0.5);
+            background: var(--surface);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 44px 40px;
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.03), 0 40px 80px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05);
+            position: relative; overflow: hidden;
         }
-        .brand { display: flex; align-items: center; gap: 14px; margin-bottom: 32px; justify-content: center; }
-        .brand-icon { width: 52px; height: 52px; background: linear-gradient(135deg, #0ea5e9, #6366f1); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: white; box-shadow: 0 8px 20px rgba(14,165,233,0.35); }
-        .brand-name { font-size: 18px; font-weight: 800; color: white; }
-        .brand-sub { font-size: 12px; color: #64748b; }
-        .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); margin-bottom: 28px; }
-        .login-heading { text-align: center; margin-bottom: 28px; }
-        .login-heading h2 { font-size: 26px; font-weight: 800; color: white; margin-bottom: 6px; }
-        .login-heading p { font-size: 14px; color: #64748b; }
-        .field-group { margin-bottom: 18px; }
-        .field-label { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; }
-        .field-label i { font-size: 11px; color: #0ea5e9; }
-        .field-input { width: 100%; background: rgba(15,23,42,0.8); border: 1.5px solid rgba(255,255,255,0.08); border-radius: 12px; color: white; padding: 13px 16px; font-size: 14px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; outline: none; transition: all 0.25s ease; }
-        .field-input::placeholder { color: #334155; }
-        .field-input:focus { border-color: #0ea5e9; background: rgba(14,165,233,0.06); box-shadow: 0 0 0 4px rgba(14,165,233,0.1); }
-        input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus { -webkit-box-shadow: 0 0 0px 1000px #0f1e35 inset !important; -webkit-text-fill-color: white !important; }
-        .field-input-wrap { position: relative; }
-        .toggle-password { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: #475569; cursor: pointer; font-size: 14px; transition: color 0.2s; background: none; border: none; }
-        .toggle-password:hover { color: #0ea5e9; }
-        .field-input.has-toggle { padding-right: 44px; }
-        .remember-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
-        .remember-check { display: flex; align-items: center; gap: 8px; cursor: pointer; }
-        .remember-check input[type="checkbox"] { width: 16px; height: 16px; accent-color: #0ea5e9; cursor: pointer; }
-        .remember-check span { font-size: 13px; color: #94a3b8; }
-        .forgot-link { font-size: 13px; color: #0ea5e9; text-decoration: none; }
-        .forgot-link:hover { opacity: 0.8; color: #0ea5e9; }
-        .btn-login { width: 100%; padding: 14px; background: linear-gradient(135deg, #0ea5e9, #6366f1); border: none; border-radius: 12px; color: white; font-size: 15px; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif; cursor: pointer; transition: all 0.25s; box-shadow: 0 8px 24px rgba(14,165,233,0.3); display: flex; align-items: center; justify-content: center; gap: 8px; }
-        .btn-login:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(14,165,233,0.4); }
-        .btn-login:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
-        .error-msg { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.25); border-radius: 12px; padding: 12px 16px; color: #ef4444; font-size: 13px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-        .role-badges { display: flex; gap: 8px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
-        .role-badge { padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+        .login-card::before {
+            content: ''; position: absolute;
+            top:0; left:0; right:0; height:1px;
+            background: linear-gradient(90deg, transparent, var(--primary), var(--accent), transparent);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        @keyframes shimmer { 0%,100%{opacity:0.4} 50%{opacity:1} }
+
+        .brand {
+            display: flex; align-items: center; gap: 14px;
+            margin-bottom: 36px; justify-content: center;
+        }
+        .brand-logo {
+            width:52px; height:52px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px; color: white;
+            box-shadow: 0 0 0 4px rgba(14,165,233,0.15), 0 8px 24px rgba(14,165,233,0.3);
+            animation: logoPulse 3s ease-in-out infinite; flex-shrink: 0;
+        }
+        @keyframes logoPulse {
+            0%,100% { box-shadow: 0 0 0 4px rgba(14,165,233,0.15), 0 8px 24px rgba(14,165,233,0.3); }
+            50%     { box-shadow: 0 0 0 8px rgba(14,165,233,0.08), 0 8px 32px rgba(14,165,233,0.45); }
+        }
+        .brand-text .name { font-size:17px; font-weight:700; color:white; letter-spacing:-0.3px; line-height:1.2; }
+        .brand-text .sub  { font-size:11px; color:var(--muted); font-weight:400; margin-top:2px; }
+
+        .divider { height:1px; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.07),transparent); margin-bottom:32px; }
+
+        .login-heading { text-align:center; margin-bottom:32px; }
+        .login-heading h2 { font-size:26px; font-weight:800; color:white; letter-spacing:-0.5px; margin-bottom:6px; }
+        .login-heading p  { font-size:13px; color:var(--muted); }
+
+        .msg-box {
+            border-radius:12px; padding:12px 16px; font-size:13px;
+            margin-bottom:24px; display:flex; align-items:flex-start; gap:10px;
+            animation: fadeIn 0.3s ease;
+        }
+        .msg-error   { background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.2); color:#fca5a5; }
+        .msg-success { background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.2); color:#6ee7b7; }
+        @keyframes fadeIn { from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:translateY(0)} }
+
+        .field-group { margin-bottom:20px; }
+        .field-label {
+            display:flex; align-items:center; gap:7px;
+            font-size:11px; font-weight:600; color:var(--muted);
+            text-transform:uppercase; letter-spacing:1px; margin-bottom:9px;
+        }
+        .field-label i { color:var(--primary); font-size:10px; }
+
+        .field-wrap { position:relative; }
+
+        .field-input {
+            width:100%;
+            background: rgba(5,15,30,0.7);
+            border: 1.5px solid rgba(255,255,255,0.07);
+            border-radius:12px; color:white;
+            padding:13px 16px; font-size:14px;
+            font-family:'Sora',sans-serif; font-weight:400;
+            outline:none; transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+            -webkit-text-fill-color: white;
+        }
+        .field-input::placeholder { color:#1e3a52; }
+        .field-input:focus {
+            border-color: var(--primary);
+            background: rgba(14,165,233,0.04);
+            box-shadow: 0 0 0 3px rgba(14,165,233,0.12), 0 0 20px rgba(14,165,233,0.06);
+        }
+        input:-webkit-autofill,
+        input:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 1000px #060f1d inset !important;
+            -webkit-text-fill-color: white !important;
+        }
+        .field-input.has-icon { padding-right:46px; }
+
+        .toggle-pwd {
+            position:absolute; right:14px; top:50%; transform:translateY(-50%);
+            color:var(--muted); background:none; border:none;
+            cursor:pointer; font-size:14px; transition:color 0.2s; padding:0; line-height:1;
+        }
+        .toggle-pwd:hover { color:var(--primary); }
+
+        .remember-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:24px; }
+        .remember-label { display:flex; align-items:center; gap:8px; cursor:pointer; font-size:13px; color:var(--muted); }
+        .remember-label input[type="checkbox"] { width:15px; height:15px; accent-color:var(--primary); cursor:pointer; }
+        .forgot-link { font-size:12px; color:var(--primary); text-decoration:none; font-weight:500; transition:opacity 0.2s; }
+        .forgot-link:hover { opacity:0.75; color:var(--primary); }
+
+        .btn-login {
+            width:100%; padding:14px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border:none; border-radius:12px; color:white;
+            font-size:14px; font-weight:700; font-family:'Sora',sans-serif;
+            letter-spacing:0.3px; cursor:pointer;
+            transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+            box-shadow: 0 8px 24px rgba(14,165,233,0.25);
+            display:flex; align-items:center; justify-content:center; gap:9px;
+            position:relative; overflow:hidden;
+        }
+        .btn-login::after {
+            content:''; position:absolute; inset:0;
+            background:linear-gradient(135deg,rgba(255,255,255,0.12),transparent);
+            opacity:0; transition:opacity 0.25s;
+        }
+        .btn-login:hover { transform:translateY(-2px); box-shadow:0 14px 32px rgba(14,165,233,0.35); }
+        .btn-login:hover::after { opacity:1; }
+        .btn-login:active { transform:translateY(0); }
+        .btn-login:disabled { opacity:0.65; cursor:not-allowed; transform:none; }
+
+        .spinner {
+            width:16px; height:16px;
+            border:2px solid rgba(255,255,255,0.3);
+            border-top-color:white; border-radius:50%;
+            animation:spin 0.75s linear infinite; display:none; flex-shrink:0;
+        }
+        @keyframes spin { to { transform:rotate(360deg); } }
+
+        .role-badges { display:flex; justify-content:center; gap:8px; margin-top:24px; flex-wrap:wrap; }
+        .role-badge {
+            display:inline-flex; align-items:center; gap:5px;
+            padding:5px 12px; border-radius:20px;
+            font-size:11px; font-weight:600; letter-spacing:0.3px; border:1px solid;
+        }
+        .badge-admin { background:rgba(14,165,233,0.08); border-color:rgba(14,165,233,0.2); color:#7dd3fc; }
+        .badge-staff { background:rgba(16,185,129,0.08); border-color:rgba(16,185,129,0.2); color:#6ee7b7; }
+
+        .login-footer { text-align:center; margin-top:28px; }
+        .login-footer p { font-size:11px; color:#1e3a52; font-family:'JetBrains Mono',monospace; letter-spacing:0.3px; }
+        .login-footer span { color:#334e68; font-weight:500; }
+
+        @media (max-width:480px) { .login-card { padding:32px 24px; } }
     </style>
 </head>
 <body>
-<div class="blob blob-1"></div>
-<div class="blob blob-2"></div>
-<div class="blob blob-3"></div>
+
+<div class="grid-bg"></div>
+<div class="glow glow-1"></div>
+<div class="glow glow-2"></div>
+<div class="glow glow-3"></div>
+<div class="particles" id="particles"></div>
 
 <div class="login-wrapper">
     <div class="login-card">
+
+        <!-- Brand -->
         <div class="brand">
-            <div class="brand-icon"><i class="fas fa-heartbeat"></i></div>
-            <div>
-                <div class="brand-name">Aarogyam Clinic</div>
-                <div class="brand-sub">Management System</div>
+            <div class="brand-logo"><i class="fas fa-heartbeat"></i></div>
+            <div class="brand-text">
+                <div class="name">Aarogyam Multi-Speciality Clinic</div>
+                <div class="sub">Staff Management System</div>
             </div>
         </div>
 
         <div class="divider"></div>
 
         <div class="login-heading">
-            <h2>Welcome back! 👋</h2>
-            <p>Sign in to your account to continue</p>
+            <h2>Welcome back 👋</h2>
+            <p>Sign in to access your dashboard</p>
         </div>
 
         {% if messages %}
         {% for msg in messages %}
-        <div class="error-msg">
-            <i class="fas {% if msg.tags == 'success' %}fa-check-circle{% else %}fa-exclamation-circle{% endif %}"
-               style="{% if msg.tags == 'success' %}color:#10b981{% endif %}"></i>
-            <span style="{% if msg.tags == 'success' %}color:#10b981{% endif %}">{{ msg }}</span>
+        <div class="msg-box {% if msg.tags == 'success' %}msg-success{% else %}msg-error{% endif %}">
+            <i class="fas {% if msg.tags == 'success' %}fa-check-circle{% else %}fa-circle-exclamation{% endif %}" style="margin-top:1px; flex-shrink:0;"></i>
+            <span>{{ msg }}</span>
         </div>
         {% endfor %}
         {% endif %}
@@ -110,21 +260,26 @@
 
             <div class="field-group">
                 <div class="field-label"><i class="fas fa-user"></i> Username</div>
-                <input type="text" name="username" class="field-input" placeholder="Enter your username" autocomplete="username" required>
+                <div class="field-wrap">
+                    <input type="text" name="username" id="usernameInput" class="field-input"
+                        placeholder="Enter your username" autocomplete="username" required>
+                </div>
             </div>
 
             <div class="field-group">
                 <div class="field-label"><i class="fas fa-lock"></i> Password</div>
-                <div class="field-input-wrap">
-                    <input type="password" name="password" id="passwordInput" class="field-input has-toggle" placeholder="Enter your password" autocomplete="current-password" required>
-                    <button type="button" class="toggle-password" onclick="togglePassword()">
+                <div class="field-wrap">
+                    <input type="password" name="password" id="passwordInput"
+                        class="field-input has-icon" placeholder="Enter your password"
+                        autocomplete="current-password" required>
+                    <button type="button" class="toggle-pwd" onclick="togglePassword()">
                         <i class="fas fa-eye" id="eyeIcon"></i>
                     </button>
                 </div>
             </div>
 
             <div class="remember-row">
-                <label class="remember-check">
+                <label class="remember-label">
                     <input type="checkbox" name="remember_me" value="1">
                     <span>Remember me</span>
                 </label>
@@ -132,23 +287,45 @@
             </div>
 
             <button type="submit" class="btn-login" id="loginBtn">
-                <i class="fas fa-sign-in-alt" id="loginIcon"></i>
+                <div class="spinner" id="spinner"></div>
+                <i class="fas fa-arrow-right-to-bracket" id="loginIcon"></i>
                 <span id="loginText">Sign In</span>
             </button>
         </form>
 
         <div class="role-badges">
-            <span class="role-badge" style="background:rgba(14,165,233,0.15); color:#0ea5e9;">👑 Admin</span>
-            <span class="role-badge" style="background:rgba(16,185,129,0.15); color:#10b981;">👨‍⚕️ Staff</span>
-            <span class="role-badge" style="background:rgba(99,102,241,0.15); color:#6366f1;">🧑 Patient</span>
+            <span class="role-badge badge-admin"><i class="fas fa-crown"></i> Admin</span>
+            <span class="role-badge badge-staff"><i class="fas fa-user-nurse"></i> Staff</span>
         </div>
+
+    </div>
+
+    <div class="login-footer">
+        <p>© 2026 Aarogyam Clinic &nbsp;·&nbsp; Designed by <span>Sawant Indrajit Namdeo</span></p>
     </div>
 </div>
 
 <script>
+(function() {
+    const container = document.getElementById('particles');
+    for (let i = 0; i < 30; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.cssText = `
+            left: ${Math.random() * 100}%;
+            bottom: ${Math.random() * 20}%;
+            animation-duration: ${8 + Math.random() * 14}s;
+            animation-delay: ${Math.random() * 10}s;
+            width: ${1 + Math.random() * 2}px;
+            height: ${1 + Math.random() * 2}px;
+        `;
+        container.appendChild(p);
+    }
+})();
+
 function togglePassword() {
     const input = document.getElementById('passwordInput');
-    const icon = document.getElementById('eyeIcon');
+    const icon  = document.getElementById('eyeIcon');
     if (input.type === 'password') {
         input.type = 'text';
         icon.className = 'fas fa-eye-slash';
@@ -159,12 +336,19 @@ function togglePassword() {
 }
 
 document.getElementById('loginForm').addEventListener('submit', function() {
-    const btn = document.getElementById('loginBtn');
-    const icon = document.getElementById('loginIcon');
-    const text = document.getElementById('loginText');
+    const username = document.getElementById('usernameInput').value.trim();
+    const password = document.getElementById('passwordInput').value.trim();
+    if (!username || !password) return;
+
+    const btn     = document.getElementById('loginBtn');
+    const spinner = document.getElementById('spinner');
+    const icon    = document.getElementById('loginIcon');
+    const text    = document.getElementById('loginText');
+
     btn.disabled = true;
-    icon.className = 'fas fa-spinner fa-spin';
-    text.textContent = 'Signing in...';
+    spinner.style.display = 'block';
+    icon.style.display    = 'none';
+    text.textContent      = 'Signing in...';
 });
 </script>
 </body>
