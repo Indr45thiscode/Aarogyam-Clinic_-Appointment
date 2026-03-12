@@ -635,7 +635,7 @@ body { padding-top: 72px; }
                 <i class="fas fa-phone-alt"></i>
                 <span>+91 98765 43210</span>
             </a>
-            <a href="/login/" class="btn-staff-login">
+            <a href="{% if user.is_authenticated %}/logout/?next=/login/{% else %}/login/{% endif %}" class="btn-staff-login">
                 <i class="fas fa-lock"></i>
                 Staff Login
             </a>
